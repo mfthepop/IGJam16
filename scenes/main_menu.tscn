@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://dlfda2g7a4rwy"]
+
+[ext_resource type="PackedScene" uid="uid://dmkv0c8b22xeo" path="res://assets/Cheese.glb" id="1_l6cm7"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_ekxnf"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_bqqt6"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_wu84c"]
+
+[node name="MainMenu" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.5749767, 0, 0.81816983, 0, 1, 0, -0.81816983, 0, 0.5749767, 1.0587989, 0.93380505, 0.00594151)
+current = true
+
+[node name="Geometry" type="Node3D" parent="."]
+
+[node name="Ground" type="MeshInstance3D" parent="Geometry"]
+transform = Transform3D(4, 0, 0, 0, -1.7484555e-07, 4, 0, -4, -1.7484555e-07, 0, 0, 0)
+mesh = SubResource("QuadMesh_ekxnf")
+skeleton = NodePath("../..")
+
+[node name="Left" type="MeshInstance3D" parent="Geometry"]
+transform = Transform3D(-1.7484555e-07, 0, 4, 0, 4, 0, -4, 0, -1.7484555e-07, -2, 2, 0)
+mesh = SubResource("QuadMesh_bqqt6")
+skeleton = NodePath("../..")
+
+[node name="Right" type="MeshInstance3D" parent="Geometry"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 2, -2)
+mesh = SubResource("QuadMesh_wu84c")
+skeleton = NodePath("../..")
+
+[node name="Cheese" parent="." instance=ExtResource("1_l6cm7")]
+transform = Transform3D(1, 0, 0, 0, 0.235634, -0.9718419, 0, 0.9718419, 0.235634, 0, 0.9218956, -1.6715472)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.63311535, -0.46860623, 0.61609507, 0.43736932, 0.87326247, 0.21475743, -0.63864946, 0.13349487, 0.75782996, 0, 2.1620505, 0)
