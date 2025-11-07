@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dlfda2g7a4rwy"]
+[gd_scene load_steps=13 format=3 uid="uid://dlfda2g7a4rwy"]
 
 [ext_resource type="Script" uid="uid://di8kfp70utkky" path="res://scripts/main_menu.gd" id="1_ekxnf"]
 [ext_resource type="PackedScene" uid="uid://dmkv0c8b22xeo" path="res://assets/Cheese.glb" id="1_l6cm7"]
@@ -25,11 +25,77 @@ albedo_color = Color(0.30323282, 0.30323282, 0.30323282, 1)
 material = SubResource("StandardMaterial3D_l6cm7")
 text = "Phlipp The Mouse"
 
+[sub_resource type="Animation" id="Animation_ekxnf"]
+resource_name = "new_animation"
+length = 3.0
+markers = [{
+"color": Color(1, 1, 1, 1),
+"name": &"new_marker",
+"time": 2.7666667
+}]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 2.7666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.24141553, 1.6554778, 0.039383568), Vector3(-0.40737575, 0.07522946, -0.029853478), Vector3(0, 1.3421059, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.75, 2.78),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.39056802, 1.2107887, 0.44920993), Vector3(0.39056802, 1.2107887, 0.44920993), Vector3(0.39056802, 2.0420432, 0.44920993)]
+}
+
+[sub_resource type="Animation" id="Animation_bqqt6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.17867728, 0.16537356, -0.029653726)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.39056802, 1.2107887, 0.44920993)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wu84c"]
+_data = {
+&"RESET": SubResource("Animation_bqqt6"),
+&"new_animation": SubResource("Animation_ekxnf")
+}
+
 [node name="MainMenu" type="Node3D"]
 script = ExtResource("1_ekxnf")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.5749767, 0, 0.81816983, 0, 1, 0, -0.81816983, 0, 0.5749767, 1.0587989, 0.93380505, 0.00594151)
+transform = Transform3D(0.9867908, -1.8626451e-09, 0.162, -0.029177353, 0.983647, 0.17772806, -0.15935081, -0.18010713, 0.9706538, 0.39056802, 1.2107887, 0.44920993)
 current = true
 
 [node name="ColorRect" type="ColorRect" parent="Camera3D"]
@@ -85,13 +151,18 @@ transform = Transform3D(1, 0, 0, 0, 0.235634, -0.9718419, 0, 0.9718419, 0.235634
 transform = Transform3D(0.63311535, -0.46860623, 0.61609507, 0.43736932, 0.87326247, 0.21475743, -0.63864946, 0.13349487, 0.75782996, 0, 2.1620505, 0)
 
 [node name="Credit" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.05313921, 0.117648855, 0.99163234, 0.06447867, 0.9913676, -0.114161976, -0.99650335, 0.057872735, -0.06026648, -0.9635771, 1.8229613, 0.041338444)
+transform = Transform3D(-0.08339036, 0.20051411, 0.9325824, 0.10118517, 1.6896312, -0.10736382, -1.563794, 0.09863504, -0.056677718, -0.9635771, 2.2857313, 0.46520108)
 mesh = SubResource("TextMesh_bqqt6")
 skeleton = NodePath("../MeshInstance3D")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.9220997, -0.10009848, 0.37378126, -1.2255045e-08, 0.96596193, 0.2586842, -0.3869524, -0.23853257, 0.89071304, 0.4545946, 1.2907348, -1.108666)
+transform = Transform3D(0.97219455, -0.06057742, 0.22620422, -1.9125224e-08, 0.96596205, 0.25868422, -0.23417507, -0.2514913, 0.93910265, 0.14281869, 1.1567402, -1.108666)
 mesh = SubResource("TextMesh_ekxnf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_wu84c")
+}
 
 [connection signal="pressed" from="Camera3D/ColorRect/Buttons/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Camera3D/ColorRect/Buttons/Quit" to="." method="_on_quit_pressed"]
