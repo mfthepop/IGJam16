@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dlfda2g7a4rwy"]
+[gd_scene load_steps=10 format=3 uid="uid://dlfda2g7a4rwy"]
 
 [ext_resource type="Script" uid="uid://di8kfp70utkky" path="res://scripts/main_menu.gd" id="1_ekxnf"]
 [ext_resource type="PackedScene" uid="uid://dmkv0c8b22xeo" path="res://assets/Cheese.glb" id="1_l6cm7"]
@@ -9,12 +9,21 @@
 
 [sub_resource type="QuadMesh" id="QuadMesh_wu84c"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ekxnf"]
+albedo_color = Color(0.30323282, 0.30323282, 0.30323282, 1)
+
+[sub_resource type="TextMesh" id="TextMesh_bqqt6"]
+material = SubResource("StandardMaterial3D_ekxnf")
+text = "Timon
+David
+Mehrdad"
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l6cm7"]
 albedo_color = Color(0.30323282, 0.30323282, 0.30323282, 1)
 
 [sub_resource type="TextMesh" id="TextMesh_ekxnf"]
 material = SubResource("StandardMaterial3D_l6cm7")
-text = "Gamejam Title"
+text = "Phlipp The Mouse"
 
 [node name="MainMenu" type="Node3D"]
 script = ExtResource("1_ekxnf")
@@ -74,6 +83,11 @@ transform = Transform3D(1, 0, 0, 0, 0.235634, -0.9718419, 0, 0.9718419, 0.235634
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.63311535, -0.46860623, 0.61609507, 0.43736932, 0.87326247, 0.21475743, -0.63864946, 0.13349487, 0.75782996, 0, 2.1620505, 0)
+
+[node name="Credit" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.05313921, 0.117648855, 0.99163234, 0.06447867, 0.9913676, -0.114161976, -0.99650335, 0.057872735, -0.06026648, -0.9635771, 1.8229613, 0.041338444)
+mesh = SubResource("TextMesh_bqqt6")
+skeleton = NodePath("../MeshInstance3D")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.9220997, -0.10009848, 0.37378126, -1.2255045e-08, 0.96596193, 0.2586842, -0.3869524, -0.23853257, 0.89071304, 0.4545946, 1.2907348, -1.108666)
