@@ -138,7 +138,7 @@ skeleton = NodePath("../..")
 shape = SubResource("ConvexPolygonShape3D_2venv")
 
 [node name="Box" type="MeshInstance3D" parent="Geometry"]
-transform = Transform3D(3, 0, 0, 0, 6, 0, 0, 0, 3, 7.284613, -1.0271015, 7.1563444)
+transform = Transform3D(3, 0, 0, 0, 6, 0, 0, 0, 3, 8.284613, 0.0054326057, -19.843655)
 mesh = SubResource("BoxMesh_tmr53")
 skeleton = NodePath("../..")
 
@@ -147,14 +147,54 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/Box/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_paw1w")
 
-[node name="Box2" type="MeshInstance3D" parent="Geometry"]
-transform = Transform3D(9, 0, 0, 0, 36, 0, 0, 0, 9, 12.791967, -14.410955, -9.50911)
+[node name="Box10" type="MeshInstance3D" parent="Geometry"]
+transform = Transform3D(3, 0, 0, 0, 6, 0, 0, 0, 3, 3.2846127, 2.9728985, -21.843655)
+mesh = SubResource("BoxMesh_tmr53")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Geometry/Box10"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/Box10/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_paw1w")
+
+[node name="Box11" type="MeshInstance3D" parent="Geometry"]
+transform = Transform3D(3, 0, 0, 0, 10.50713, 0, 0, 0, 3, 0.28461266, 2.2214575, -16.843655)
+mesh = SubResource("BoxMesh_tmr53")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Geometry/Box11"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/Box11/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_paw1w")
+
+[node name="Box9" type="MeshInstance3D" parent="Geometry"]
+transform = Transform3D(3, 0, 0, 0, 9.064604, 0, 0, 0, 20.375757, -33.715385, 3.4342413, 0.052568436)
+mesh = SubResource("BoxMesh_tmr53")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Geometry/Box9"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/Box9/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_paw1w")
+
+[node name="Box8" type="MeshInstance3D" parent="Geometry"]
+transform = Transform3D(23.46539, 0, 0, 0, 36, 0, 0, 0, 9, 1.7919674, -11.65847, 23.406242)
 mesh = SubResource("BoxMesh_j6w7d")
 skeleton = NodePath("../Box")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Geometry/Box2"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Geometry/Box8"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/Box2/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/Box8/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_paw1w")
+
+[node name="Box12" type="MeshInstance3D" parent="Geometry"]
+transform = Transform3D(10.599156, 0, 0, 0, 36, 0, 0, 0, 6.4972415, 12.850478, -14.9453335, 18.417952)
+mesh = SubResource("BoxMesh_j6w7d")
+skeleton = NodePath("../Box")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Geometry/Box12"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/Box12/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_paw1w")
 
 [node name="Box4" type="MeshInstance3D" parent="Geometry"]
