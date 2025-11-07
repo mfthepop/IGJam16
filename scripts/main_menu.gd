@@ -2,7 +2,7 @@ extends Node3D
 
 
 func _on_start_pressed() -> void:
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://scenes/test_level.tscn")
 
 
 func _on_quit_pressed() -> void:

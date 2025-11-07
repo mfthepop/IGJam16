@@ -1,0 +1,44 @@
+[gd_scene load_steps=9 format=3 uid="uid://beyjrl44m05oa"]
+
+[ext_resource type="PackedScene" uid="uid://bwggrf7sbmkcv" path="res://addons/PlayerCharacter/PlayerCharacterScene.tscn" id="1_2venv"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_3p835"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2venv"]
+points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2venv"]
+
+[sub_resource type="Sky" id="Sky_paw1w"]
+sky_material = SubResource("ProceduralSkyMaterial_2venv")
+
+[sub_resource type="Environment" id="Environment_j6w7d"]
+background_mode = 2
+sky = SubResource("Sky_paw1w")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x4b8f"]
+albedo_color = Color(0.4390491, 0.43904912, 0.43904912, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_tmr53"]
+material = SubResource("StandardMaterial3D_x4b8f")
+
+[node name="TestLevel" type="Node3D"]
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 20, 0, -0.5, 0)
+mesh = SubResource("BoxMesh_3p835")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Ground"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_2venv")
+
+[node name="PlayerCharacter" parent="." instance=ExtResource("1_2venv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3662055, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_j6w7d")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5562754, 0.36115742, 4.1563444)
+mesh = SubResource("BoxMesh_tmr53")
