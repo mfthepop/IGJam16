@@ -73,6 +73,9 @@ var coyoteJumpOn : bool = false
 @export var crouchAction : String = ""
 @export var jumpAction : String = ""
 
+@export_group("HUD variables")
+@export var showHUD : bool = false
+
 #references variables
 @onready var camHolder : Node3D = $CameraHolder
 @onready var model : MeshInstance3D = $Model
@@ -92,6 +95,8 @@ func _ready():
 	jumpCooldownRef = jumpCooldown
 	nbJumpsInAirAllowedRef = nbJumpsInAirAllowed
 	coyoteJumpCooldownRef = coyoteJumpCooldown
+	
+	hud.visible = showHUD
 	
 func _process(_delta: float):
 	displayProperties()

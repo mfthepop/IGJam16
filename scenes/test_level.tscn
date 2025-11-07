@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://beyjrl44m05oa"]
+[gd_scene load_steps=12 format=3 uid="uid://beyjrl44m05oa"]
 
 [ext_resource type="PackedScene" uid="uid://bwggrf7sbmkcv" path="res://addons/PlayerCharacter/PlayerCharacterScene.tscn" id="1_2venv"]
 
@@ -16,11 +16,20 @@ sky_material = SubResource("ProceduralSkyMaterial_2venv")
 background_mode = 2
 sky = SubResource("Sky_paw1w")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x4b8f"]
-albedo_color = Color(0.4390491, 0.43904912, 0.43904912, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2venv"]
+albedo_color = Color(0.24705882, 0.4392157, 0.4392157, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_tmr53"]
-material = SubResource("StandardMaterial3D_x4b8f")
+material = SubResource("StandardMaterial3D_2venv")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_paw1w"]
+points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_paw1w"]
+albedo_color = Color(0.8156863, 0.4392157, 0.4392157, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_j6w7d"]
+material = SubResource("StandardMaterial3D_paw1w")
 
 [node name="TestLevel" type="Node3D"]
 
@@ -35,10 +44,29 @@ shape = SubResource("ConvexPolygonShape3D_2venv")
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("1_2venv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3662055, 0)
+showHUD = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_j6w7d")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5562754, 0.36115742, 4.1563444)
+[node name="Box" type="MeshInstance3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 6, 0, 0, 0, 3, 2.2846131, -1.0271015, 4.1563444)
 mesh = SubResource("BoxMesh_tmr53")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Box"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Box/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_paw1w")
+
+[node name="Box2" type="MeshInstance3D" parent="."]
+transform = Transform3D(9, 0, 0, 0, 36, 0, 0, 0, 9, 6.7919674, -14.410955, -5.5091105)
+mesh = SubResource("BoxMesh_j6w7d")
+skeleton = NodePath("../Box")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Box2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Box2/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_paw1w")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.9313612, 0.36409664, 0, -0.36409664, 0.9313612, 0, 9.730066, 2.404961)
