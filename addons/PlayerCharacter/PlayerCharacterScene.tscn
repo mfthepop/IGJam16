@@ -1,7 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://bwggrf7sbmkcv"]
+[gd_scene load_steps=20 format=3 uid="uid://bwggrf7sbmkcv"]
 
 [ext_resource type="Script" uid="uid://d3s8yxuvpmekm" path="res://addons/PlayerCharacter/StateMachine/PlayerCharacterScript.gd" id="1_h128t"]
 [ext_resource type="Script" uid="uid://b0fbr48rbvn27" path="res://addons/PlayerCharacter/Camera/CameraScript.gd" id="2_x12n0"]
+[ext_resource type="Script" uid="uid://cyymc8do3bwa7" path="res://scripts/menu.gd" id="12_17hed"]
 [ext_resource type="Script" uid="uid://dx02l6p6behb8" path="res://addons/PlayerCharacter/UI/HUDScript.gd" id="16_5jm78"]
 [ext_resource type="FontFile" uid="uid://bwr73i28ligrq" path="res://addons/Arts/Ticketing.ttf" id="17_ryxgj"]
 [ext_resource type="Script" uid="uid://sca7ypsol83f" path="res://addons/PlayerCharacter/StateMachine/StateMachineScript.gd" id="54_e0r17"]
@@ -285,3 +286,45 @@ theme_override_font_sizes/font_size = 40
 text = "....."
 label_settings = SubResource("LabelSettings_3aho1")
 vertical_alignment = 1
+
+[node name="Menu" type="CanvasLayer" parent="."]
+process_mode = 2
+visible = false
+script = ExtResource("12_17hed")
+
+[node name="ColorRect" type="ColorRect" parent="Menu"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.14044756, 0.14044741, 0.14044744, 0.7176471)
+
+[node name="Buttons" type="VBoxContainer" parent="Menu/ColorRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Continue" type="Button" parent="Menu/ColorRect/Buttons"]
+layout_mode = 2
+text = "Continue"
+
+[node name="BackToMenu" type="Button" parent="Menu/ColorRect/Buttons"]
+layout_mode = 2
+text = "Back to Menu"
+
+[node name="Quit" type="Button" parent="Menu/ColorRect/Buttons"]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="Menu/ColorRect/Buttons/Continue" to="Menu" method="_on_continue_pressed"]
+[connection signal="pressed" from="Menu/ColorRect/Buttons/BackToMenu" to="Menu" method="_on_back_to_menu_pressed"]
+[connection signal="pressed" from="Menu/ColorRect/Buttons/Quit" to="Menu" method="_on_quit_pressed"]

@@ -100,6 +100,15 @@ func _ready():
 	
 func _process(_delta: float):
 	displayProperties()
+	if Input.is_action_just_pressed("ui_cancel"):
+		if $Menu.visible:
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			get_tree().paused = false
+			$Menu.visible = false
+		else:
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			get_tree().paused = true
+			$Menu.visible = true
 	
 func _physics_process(_delta : float):
 	modifyPhysicsProperties()
