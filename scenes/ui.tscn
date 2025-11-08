@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c4526b3cqlbne"]
+[gd_scene load_steps=4 format=3 uid="uid://c4526b3cqlbne"]
 
 [ext_resource type="Script" uid="uid://ddjeowaurmiao" path="res://scripts/UI.gd" id="1_x4jx1"]
 [ext_resource type="Texture2D" uid="uid://bs37k5hxi80m4" path="res://assets/cheese-3d-illustration-emmental-cheddar-edam-cheese-triangle-lump-with-holes.png" id="2_yev5y"]
+[ext_resource type="AudioStream" uid="uid://chqpfbgqe0oeq" path="res://assets/sounds/pickup_audio.tres" id="3_yev5y"]
 
 [node name="UI" type="Control" groups=["UI"]]
 layout_mode = 3
@@ -36,3 +37,7 @@ texture = ExtResource("2_yev5y")
 modulate = Color(0.27730417, 0.27730417, 0.27730417, 1)
 layout_mode = 2
 texture = ExtResource("2_yev5y")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_yev5y")
+volume_db = -30.0

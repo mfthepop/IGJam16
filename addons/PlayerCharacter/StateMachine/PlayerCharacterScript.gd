@@ -72,6 +72,9 @@ var coyoteJumpOn : bool = false
 @export_group("HUD variables")
 @export var showHUD : bool = false
 
+@export_group("HUD variables")
+@export var use_motion : bool = true
+
 @export_group("Gravity variables")
 @onready var jumpGravity : float = (-2.0 * jumpHeight) / (jumpTimeToPeak * jumpTimeToPeak)
 @onready var fallGravity : float = (-2.0 * jumpHeight) / (jumpTimeToFall * jumpTimeToFall)
@@ -97,6 +100,8 @@ func _ready():
 	coyoteJumpCooldownRef = coyoteJumpCooldown
 	
 	hud.visible = showHUD
+	
+	use_motion = !Global.deactivate_camera_motion
 	
 func _process(_delta: float):
 	displayProperties()

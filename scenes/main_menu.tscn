@@ -158,6 +158,10 @@ text = "Quit"
 layout_mode = 2
 text = "Credits"
 
+[node name="DeactivateCamMotion" type="CheckBox" parent="Camera3D/ColorRect/Buttons"]
+layout_mode = 2
+text = "Deactivate Camera Motion"
+
 [node name="Geometry" type="Node3D" parent="."]
 
 [node name="Ground" type="MeshInstance3D" parent="Geometry"]
@@ -198,4 +202,5 @@ libraries = {
 [connection signal="pressed" from="Camera3D/ColorRect/Buttons/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Camera3D/ColorRect/Buttons/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="Camera3D/ColorRect/Buttons/Credits" to="." method="_on_credits_pressed"]
+[connection signal="toggled" from="Camera3D/ColorRect/Buttons/DeactivateCamMotion" to="." method="_on_deactivate_cam_motion_toggled"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -17,3 +17,6 @@ func _on_credits_pressed() -> void:
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	showCredits = anim_name == "show_credits"
+
+func _on_deactivate_cam_motion_toggled(toggled_on: bool) -> void:
+	Global.deactivate_camera_motion = toggled_on
