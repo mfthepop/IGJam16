@@ -3,9 +3,15 @@ extends Marker3D
 @export_category("Linking Variables")
 @export var linked_teleporter : Marker3D
 
+@export_category("Visibility Variables")
+@export var show_debug_shape = false
+
 @onready var entered_from_teleport = false
 
 signal teleported_from(where)
+
+func _ready() -> void:
+	$Debug.visible = show_debug_shape
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("PlayerCharacter") && !entered_from_teleport :
