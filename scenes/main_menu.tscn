@@ -23,7 +23,7 @@ albedo_color = Color(0.30323282, 0.30323282, 0.30323282, 1)
 
 [sub_resource type="TextMesh" id="TextMesh_ekxnf"]
 material = SubResource("StandardMaterial3D_l6cm7")
-text = "Pihlipp The Mouse"
+text = "Philipp The Mouse"
 
 [sub_resource type="Animation" id="Animation_bqqt6"]
 length = 0.001
