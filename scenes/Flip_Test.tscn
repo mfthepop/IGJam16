@@ -289,6 +289,16 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Geometry/Boxes/Box7/StaticBody3D"]
 shape = SubResource("BoxShape3D_vxs5x")
 
+[node name="Box18" type="MeshInstance3D" parent="Level/Geometry/Boxes"]
+transform = Transform3D(0.023553621, 0.053366166, 4.570019, 0.123831086, 1.1671393, -0.2089842, -20.192198, 0.007219858, 0.0040492, 16.808441, 7.831145, -15.23601)
+mesh = SubResource("BoxMesh_j6w7d")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level/Geometry/Boxes/Box18"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Geometry/Boxes/Box18/StaticBody3D"]
+shape = SubResource("BoxShape3D_vxs5x")
+
 [node name="Box11" type="MeshInstance3D" parent="Level/Geometry/Boxes"]
 transform = Transform3D(11.183093, 0.05336617, -0.005336488, -0.511396, 1.1671392, -0.028054908, 0.009909051, 0.007219862, 4.574707, 21.553839, 25.095964, -5.122773)
 mesh = SubResource("BoxMesh_j6w7d")
@@ -463,6 +473,30 @@ linked_teleporter = NodePath("../TeleportPoint5")
 show_debug_shape = true
 shape_color = Color(0.41639748, 0.31314877, 0, 0.4)
 
+[node name="TeleportPoint11" parent="Level" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("3_i6t0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.95113, 5.7465, 0.0132808685)
+linked_teleporter = NodePath("../TeleportPoint12")
+show_debug_shape = true
+shape_color = Color(0.46666667, 0, 0.69411767, 0.4)
+
+[node name="TeleportPoint13" parent="Level" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("3_i6t0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.286673, 9.290174, -24.35633)
+linked_teleporter = NodePath("../TeleportPoint14")
+show_debug_shape = true
+shape_color = Color(0, 0, 0.69411767, 0.4)
+
+[node name="TeleportPoint14" parent="Level" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("3_i6t0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.286673, 6.2901735, -24.35633)
+linked_teleporter = NodePath("../TeleportPoint13")
+show_debug_shape = true
+shape_color = Color(0, 0, 0.69411767, 0.4)
+
+[node name="TeleportPoint12" parent="Level" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("3_i6t0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.099857, 26.7465, -5.0169563)
+linked_teleporter = NodePath("../TeleportPoint11")
+show_debug_shape = true
+shape_color = Color(0.46843702, 0.0017425257, 0.69514066, 0.4)
+
 [node name="TeleportPoint9" parent="Level" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("3_i6t0p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.228659, 18.394108, -24.315668)
 linked_teleporter = NodePath("../TeleportPoint10")
@@ -552,6 +586,10 @@ skeleton = NodePath("")
 [connection signal="teleported_from" from="Level/TeleportPoint4" to="." method="_on_teleport_point_teleported_from"]
 [connection signal="teleported_from" from="Level/TeleportPoint5" to="." method="_on_teleport_point_teleported_from"]
 [connection signal="teleported_from" from="Level/TeleportPoint6" to="." method="_on_teleport_point_teleported_from"]
+[connection signal="teleported_from" from="Level/TeleportPoint11" to="." method="_on_teleport_point_teleported_from"]
+[connection signal="teleported_from" from="Level/TeleportPoint13" to="." method="_on_teleport_point_teleported_from"]
+[connection signal="teleported_from" from="Level/TeleportPoint14" to="." method="_on_teleport_point_teleported_from"]
+[connection signal="teleported_from" from="Level/TeleportPoint12" to="." method="_on_teleport_point_teleported_from"]
 [connection signal="teleported_from" from="Level/TeleportPoint9" to="." method="_on_teleport_point_teleported_from"]
 [connection signal="teleported_from" from="Level/TeleportPoint10" to="." method="_on_teleport_point_teleported_from"]
 [connection signal="teleported_from" from="Level/TeleportPoint7" to="." method="_on_teleport_point_teleported_from"]
