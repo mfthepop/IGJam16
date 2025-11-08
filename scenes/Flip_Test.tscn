@@ -712,6 +712,12 @@ shape = SubResource("ConvexPolygonShape3D_paw1w")
 [node name="Goal" parent="Level" instance=ExtResource("2_i6t0p")]
 transform = Transform3D(0.6360783, 0, -0.77162457, 0, 0.9999999, 0, 0.7716247, 0, 0.63607824, -28.073807, 9.050956, 0)
 
+[node name="Goal3" parent="Level" instance=ExtResource("2_i6t0p")]
+transform = Transform3D(0.6726511, 0, 0.7399599, 0, 0.9999999, 0, -0.73995996, 0, 0.672651, 11.019407, 24.743807, 22.62547)
+
+[node name="Goal2" parent="Level" instance=ExtResource("2_i6t0p")]
+transform = Transform3D(0.6360783, 0, -0.77162457, 0, 0.9999999, 0, 0.7716247, 0, 0.63607824, -21.955349, 21.404413, -22.63361)
+
 [node name="Lights" type="Node3D" parent="Level"]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Level/Lights"]
@@ -737,6 +743,13 @@ omni_range = 8.608474
 
 [node name="OmniLight3D5" type="OmniLight3D" parent="Level/Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.190441, 10.263941, 16.973852)
+light_color = Color(1, 1, 0.6117647, 1)
+light_volumetric_fog_energy = 0.0
+light_size = 5.0
+omni_range = 8.608474
+
+[node name="OmniLight3D7" type="OmniLight3D" parent="Level/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.987323, 24.26394, 23.130621)
 light_color = Color(1, 1, 0.6117647, 1)
 light_volumetric_fog_energy = 0.0
 light_size = 5.0
