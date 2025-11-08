@@ -1,9 +1,12 @@
-[gd_scene load_steps=21 format=3 uid="uid://cbb1x2h0t6k4w"]
+[gd_scene load_steps=29 format=3 uid="uid://c82wrhsdq1d5m"]
 
 [ext_resource type="PackedScene" uid="uid://bwggrf7sbmkcv" path="res://addons/PlayerCharacter/PlayerCharacterScene.tscn" id="1_45x2i"]
-[ext_resource type="Script" uid="uid://dknbckpcga3s4" path="res://scripts/flip_test.gd" id="1_vxs5x"]
+[ext_resource type="Script" uid="uid://0xytswmcrswe" path="res://scripts/flip_test.gd" id="1_vxs5x"]
 [ext_resource type="PackedScene" uid="uid://t4l4a88t6o5f" path="res://scenes/goal.tscn" id="2_i6t0p"]
 [ext_resource type="PackedScene" uid="uid://b7rb58kpi6dj6" path="res://scenes/teleport_point.tscn" id="3_i6t0p"]
+[ext_resource type="Texture2D" uid="uid://dle0820vcs7g" path="res://assets/Poliigon_BrickWallReclaimed_8320_BaseColor.jpg" id="3_n0tof"]
+[ext_resource type="Texture2D" uid="uid://bahmi75lo8oal" path="res://assets/Poliigon_WoodVeneerOak_7760_BaseColor.jpg" id="4_xk2te"]
+[ext_resource type="Texture2D" uid="uid://wknky7wpajj5" path="res://assets/Texturelabs_Wood_161S.jpg" id="5_xk2te"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2venv"]
 
@@ -14,10 +17,26 @@ sky_material = SubResource("ProceduralSkyMaterial_2venv")
 background_mode = 2
 sky = SubResource("Sky_paw1w")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xk2te"]
+albedo_texture = ExtResource("3_n0tof")
+
 [sub_resource type="BoxMesh" id="BoxMesh_3p835"]
+material = SubResource("StandardMaterial3D_xk2te")
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2venv"]
 points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0be37"]
+albedo_texture = ExtResource("4_xk2te")
+
+[sub_resource type="BoxMesh" id="BoxMesh_da0tf"]
+material = SubResource("StandardMaterial3D_0be37")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_40okq"]
+albedo_texture = ExtResource("5_xk2te")
+
+[sub_resource type="BoxMesh" id="BoxMesh_4awmc"]
+material = SubResource("StandardMaterial3D_40okq")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_paw1w"]
 albedo_color = Color(0.8156863, 0.4392157, 0.4392157, 1)
@@ -229,7 +248,7 @@ shape = SubResource("ConvexPolygonShape3D_2venv")
 
 [node name="Ground" type="MeshInstance3D" parent="Level/Geometry"]
 transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, -0.0025939941, -0.513958, -0.019705772)
-mesh = SubResource("BoxMesh_3p835")
+mesh = SubResource("BoxMesh_da0tf")
 skeleton = NodePath("../../..")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Level/Geometry/Ground"]
@@ -269,7 +288,7 @@ shape = SubResource("ConvexPolygonShape3D_2venv")
 
 [node name="Ceiling" type="MeshInstance3D" parent="Level/Geometry"]
 transform = Transform3D(-50, -8.742278e-08, 0, 4.371139e-06, -1, 0, 0, 0, 50, 0.008227348, 29.967321, -0.020584106)
-mesh = SubResource("BoxMesh_3p835")
+mesh = SubResource("BoxMesh_4awmc")
 skeleton = NodePath("../../..")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Level/Geometry/Ceiling"]
