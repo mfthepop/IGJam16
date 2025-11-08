@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://cfgkvrsuehypw"]
+[gd_scene load_steps=13 format=3 uid="uid://cfgkvrsuehypw"]
 
 [ext_resource type="PackedScene" uid="uid://bwggrf7sbmkcv" path="res://addons/PlayerCharacter/PlayerCharacterScene.tscn" id="1_2venv"]
+[ext_resource type="PackedScene" uid="uid://t4l4a88t6o5f" path="res://scenes/goal.tscn" id="2_paw1w"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2venv"]
 
@@ -249,3 +250,6 @@ skeleton = NodePath("../Box")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/Boxes/Box3/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_paw1w")
+
+[node name="Goal" parent="." instance=ExtResource("2_paw1w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.926192, 0.084682465, 0)
