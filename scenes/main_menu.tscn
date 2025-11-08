@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dlfda2g7a4rwy"]
+[gd_scene load_steps=14 format=3 uid="uid://dlfda2g7a4rwy"]
 
 [ext_resource type="Script" uid="uid://di8kfp70utkky" path="res://scripts/main_menu.gd" id="1_ekxnf"]
 [ext_resource type="PackedScene" uid="uid://dmkv0c8b22xeo" path="res://assets/Cheese.glb" id="1_l6cm7"]
@@ -37,24 +37,24 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-0.40737575, 0.07522946, -0.029853478)]
+"values": [Vector3(-0.12357968, 0.23982263, -0.030132797)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Camera3D:position")
+tracks/1/path = NodePath("Camera3D/ColorRect/Buttons/Credits:text")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.39056802, 1.2107887, 0.44920993)]
+"update": 1,
+"values": ["Credits"]
 }
 
 [sub_resource type="Animation" id="Animation_ekxnf"]
-resource_name = "new_animation"
-length = 3.0
+resource_name = "show_credits"
+length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -62,7 +62,7 @@ tracks/0/path = NodePath("Camera3D:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 3),
+"times": PackedFloat32Array(0, 1.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(-0.12357969, 0.23982261, -0.030132797), Vector3(0.3378351, 1.6893127, 0.039446183)]
@@ -70,27 +70,56 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Camera3D:position")
+tracks/1/path = NodePath("Camera3D/ColorRect/Buttons/Credits:text")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 3),
+"times": PackedFloat32Array(1.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Menu"]
+}
+
+[sub_resource type="Animation" id="Animation_wu84c"]
+resource_name = "show_menu"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0.39056802, 1.2107887, 0.44920993), Vector3(0.39056802, 1.8283451, 0.44920993)]
+"values": [Vector3(0.3378351, 1.6893127, 0.03944618), Vector3(-0.12357969, 0.23982261, -0.030132797)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D/ColorRect/Buttons/Credits:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Credits"]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wu84c"]
 _data = {
 &"RESET": SubResource("Animation_bqqt6"),
-&"new_animation": SubResource("Animation_ekxnf")
+&"show_credits": SubResource("Animation_ekxnf"),
+&"show_menu": SubResource("Animation_wu84c")
 }
 
 [node name="MainMenu" type="Node3D"]
 script = ExtResource("1_ekxnf")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.99761593, -9.313225e-09, 0.06900782, -0.027406305, 0.91775453, 0.39620116, -0.063332245, -0.3971479, 0.9155667, 0.39056802, 1.2107887, 0.44920993)
+transform = Transform3D(0.9718213, -3.7252903e-09, 0.23571888, -0.029898472, 0.9919233, 0.12326537, -0.23381503, -0.12683955, 0.96397215, 0.39056802, 1.526072, 0.44920993)
 current = true
 
 [node name="ColorRect" type="ColorRect" parent="Camera3D"]
@@ -104,11 +133,18 @@ size_flags_vertical = 3
 color = Color(0, 0, 0, 0.2)
 
 [node name="Buttons" type="VBoxContainer" parent="Camera3D/ColorRect"]
-layout_mode = 0
-offset_left = 731.13
-offset_top = 400.0
-offset_right = 911.13
-offset_bottom = 501.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = 85.5
+offset_right = 90.0
+offset_bottom = 186.5
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Start" type="Button" parent="Camera3D/ColorRect/Buttons"]
 layout_mode = 2
@@ -130,7 +166,7 @@ mesh = SubResource("QuadMesh_ekxnf")
 skeleton = NodePath("../..")
 
 [node name="Left" type="MeshInstance3D" parent="Geometry"]
-transform = Transform3D(-1.7484555e-07, 0, 4, 0, 4, 0, -4, 0, -1.7484555e-07, -2, 2, 0)
+transform = Transform3D(-1.7484555e-07, 0, 4, 0, 4, 0, -4, 0, -1.7484555e-07, -1.998987, 2, -0.009883523)
 mesh = SubResource("QuadMesh_bqqt6")
 skeleton = NodePath("../..")
 
@@ -148,10 +184,10 @@ transform = Transform3D(0.63311535, -0.46860623, 0.61609507, 0.43736932, 0.87326
 [node name="Credit" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.08339036, 0.20051411, 0.9325824, 0.10118517, 1.6896312, -0.10736382, -1.563794, 0.09863504, -0.056677718, -0.9635771, 2.2857313, 0.46520108)
 mesh = SubResource("TextMesh_bqqt6")
-skeleton = NodePath("../MeshInstance3D")
+skeleton = NodePath("../Title")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.97219455, -0.06057742, 0.22620422, -1.9125224e-08, 0.96596205, 0.25868422, -0.23417507, -0.2514913, 0.93910265, 0.14281869, 1.1567402, -1.108666)
+[node name="Title" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.9909833, -0.03467818, 0.12942068, 0, 0.96592593, 0.25881898, -0.1339862, -0.25648534, 0.9572161, 0.14281869, 1.1567402, -1.108666)
 mesh = SubResource("TextMesh_ekxnf")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -162,3 +198,4 @@ libraries = {
 [connection signal="pressed" from="Camera3D/ColorRect/Buttons/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Camera3D/ColorRect/Buttons/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="Camera3D/ColorRect/Buttons/Credits" to="." method="_on_credits_pressed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
