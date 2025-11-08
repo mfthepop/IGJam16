@@ -1,7 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://cbb1x2h0t6k4w"]
+[gd_scene load_steps=15 format=3 uid="uid://cbb1x2h0t6k4w"]
 
 [ext_resource type="PackedScene" uid="uid://bwggrf7sbmkcv" path="res://addons/PlayerCharacter/PlayerCharacterScene.tscn" id="1_45x2i"]
-[ext_resource type="PackedScene" path="res://scenes/goal.tscn" id="2_i6t0p"]
+[ext_resource type="PackedScene" uid="uid://t4l4a88t6o5f" path="res://scenes/goal.tscn" id="2_i6t0p"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2venv"]
 
@@ -26,6 +26,16 @@ material = SubResource("StandardMaterial3D_paw1w")
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_paw1w"]
 points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
 
+[sub_resource type="CylinderMesh" id="CylinderMesh_45x2i"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_i6t0p"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_45x2i"]
+emission_enabled = true
+emission = Color(18.892, 11.145, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_i6t0p"]
+
 [node name="TestLevel" type="Node3D"]
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("1_45x2i")]
@@ -34,10 +44,6 @@ showHUD = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_j6w7d")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.9313612, 0.36409664, 0, -0.36409664, 0.9313612, 0, 9.730066, 2.404961)
-visible = false
 
 [node name="Geometry" type="Node3D" parent="."]
 
@@ -173,6 +179,16 @@ skeleton = NodePath("../../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/Walls/Wall10/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_2venv")
 
+[node name="Wall18" type="MeshInstance3D" parent="Geometry/Walls"]
+transform = Transform3D(1, 0, 0, 0, 10, 0, 0, 0, 13, -25, 25, 0.5)
+mesh = SubResource("BoxMesh_3p835")
+skeleton = NodePath("../../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Geometry/Walls/Wall18"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/Walls/Wall18/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_2venv")
+
 [node name="Wall2" type="MeshInstance3D" parent="Geometry/Walls"]
 transform = Transform3D(-4.371139e-08, 0, 52.024, 0, 30, 0, -1, 0, -2.2740412e-06, -0.356, 15, 25.468)
 mesh = SubResource("BoxMesh_3p835")
@@ -225,7 +241,6 @@ shape = SubResource("ConvexPolygonShape3D_2venv")
 
 [node name="Ceiling" type="MeshInstance3D" parent="Geometry"]
 transform = Transform3D(-50, -8.742278e-08, 0, 4.371139e-06, -1, 0, 0, 0, 50, 0, 30, 0)
-visible = false
 mesh = SubResource("BoxMesh_3p835")
 skeleton = NodePath("../..")
 
@@ -257,20 +272,19 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/Boxes/Box3/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_paw1w")
 
-[node name="Goal" parent="Geometry/Boxes" instance=ExtResource("2_i6t0p")]
-transform = Transform3D(0.9123605, 0.3948595, 0.10809394, -0.3348726, 0.8716976, -0.35777625, -0.23549654, 0.29022318, 0.92753, -27.701775, 8.5499525, 0.8744478)
-
 [node name="Goal" parent="." instance=ExtResource("2_i6t0p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.073807, 0.084682465, 0)
+transform = Transform3D(0.9253148, 0.37671456, 0.04334651, -0.3592679, 0.9075029, -0.21763477, -0.12132331, 0.18580775, 0.9750673, -28.073807, 8.527228, 0)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
+[node name="Lights" type="Node" parent="."]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46, 10.433246, 0)
 light_color = Color(1, 1, 0.6117647, 1)
 light_volumetric_fog_energy = 0.0
 light_size = 5.0
 omni_range = 8.608474
 
-[node name="OmniLight3D3" type="OmniLight3D" parent="."]
+[node name="OmniLight3D3" type="OmniLight3D" parent="Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 10.433246, 0)
 light_color = Color(1, 1, 0.6117647, 1)
 light_energy = 2.0
@@ -278,10 +292,40 @@ light_volumetric_fog_energy = 0.0
 light_size = 5.0
 omni_range = 8.608474
 
-[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+[node name="OmniLight3D2" type="OmniLight3D" parent="Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29, 10.433246, 1)
 light_color = Color(1, 1, 0.6117647, 1)
 light_energy = 2.0
 light_volumetric_fog_energy = 0.0
 light_size = 5.0
 omni_range = 8.608474
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 0.9313612, 0.36409664, 0, -0.36409664, 0.9313612, 0, 9.730066, 2.404961)
+visible = false
+
+[node name="HangingLight" type="Node" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="HangingLight"]
+transform = Transform3D(0.5, 0, 0, 0, 7, 0, 0, 0, 0.5, 0, 28, 0)
+mesh = SubResource("CylinderMesh_45x2i")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="HangingLight"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 20.642159, 0)
+mesh = SubResource("CapsuleMesh_i6t0p")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_45x2i")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="HangingLight/MeshInstance3D2"]
+transform = Transform3D(0.25, 0, 0, 0, -1.4570463e-08, 0.33333334, 0, -0.25, -1.0927847e-08, 0, -0.3333335, 0)
+light_color = Color(1, 0.92156863, 0.25882354, 1)
+light_energy = 15.0
+light_volumetric_fog_energy = 2.0
+light_specular = 0.0
+spot_range = 36.44664
+spot_angle = 37.478683
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="HangingLight"]
+transform = Transform3D(8, 0, 0, 0, 1.5, 0, 0, 0, 8, 0, 21.62115, 0)
+mesh = SubResource("CylinderMesh_i6t0p")
