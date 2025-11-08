@@ -10,6 +10,8 @@ func show_cheese():
 	if cheese:
 		cheese.modulate = Color (1,1,1,1) 
 		
+	$AudioStreamPlayer.play()
+		
 	if (cheese_number == max_cheese ) : 
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		get_tree().paused = false
