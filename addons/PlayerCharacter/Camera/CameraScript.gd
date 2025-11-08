@@ -63,9 +63,10 @@ func _unhandled_input(event):
 func _process(delta):
 	applies(delta)
 	
-	cameraBob(delta)
-	
-	cameraTilt(delta)
+	if get_parent().use_motion:
+		cameraBob(delta)
+		
+		cameraTilt(delta)
 	
 	mouseMode()
 	
