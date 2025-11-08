@@ -101,6 +101,8 @@ func _ready():
 	
 	hud.visible = showHUD
 	
+	use_motion = !Global.deactivate_camera_motion
+	
 func _process(_delta: float):
 	displayProperties()
 	if Input.is_action_just_pressed("ui_cancel"):
