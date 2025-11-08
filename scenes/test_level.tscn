@@ -1,7 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://cfgkvrsuehypw"]
+[gd_scene load_steps=15 format=3 uid="uid://cfgkvrsuehypw"]
 
 [ext_resource type="PackedScene" uid="uid://bwggrf7sbmkcv" path="res://addons/PlayerCharacter/PlayerCharacterScene.tscn" id="1_2venv"]
 [ext_resource type="PackedScene" uid="uid://t4l4a88t6o5f" path="res://scenes/goal.tscn" id="2_paw1w"]
+[ext_resource type="PackedScene" uid="uid://b7rb58kpi6dj6" path="res://scenes/teleport_point.tscn" id="3_j6w7d"]
+[ext_resource type="PackedScene" uid="uid://dlrgox4fvdjva" path="res://scenes/ui.tscn" id="4_x4b8f"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2venv"]
 
@@ -89,7 +91,7 @@ skeleton = NodePath("../../..")
 shape = SubResource("ConvexPolygonShape3D_2venv")
 
 [node name="Wall6" type="MeshInstance3D" parent="Geometry/Walls"]
-transform = Transform3D(-4.371139e-08, 0, 52.024414, 0, 15, 0, -1, 0, -2.2740594e-06, -51.34738, 7.5, -9.617016)
+transform = Transform3D(-4.371139e-08, 0, 82.10616, 0, 15, 0, -1, 0, -3.5889746e-06, -65.69078, 7.5, -9.617016)
 mesh = SubResource("BoxMesh_3p835")
 skeleton = NodePath("../../..")
 
@@ -99,7 +101,7 @@ skeleton = NodePath("../../..")
 shape = SubResource("ConvexPolygonShape3D_2venv")
 
 [node name="Wall7" type="MeshInstance3D" parent="Geometry/Walls"]
-transform = Transform3D(-4.371139e-08, 0, 52.024414, 0, 15, 0, -1, 0, -2.2740594e-06, -51.34738, 7.5, 9.382984)
+transform = Transform3D(-4.371139e-08, 0, 82.10616, 0, 15, 0, -1, 0, -3.5889746e-06, -65.69078, 7.5, 9.382984)
 mesh = SubResource("BoxMesh_3p835")
 skeleton = NodePath("../../..")
 
@@ -118,6 +120,16 @@ skeleton = NodePath("../../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/Walls/Wall4/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_2venv")
 
+[node name="Wall8" type="MeshInstance3D" parent="Geometry/Walls"]
+transform = Transform3D(1, 0, 0, 0, 15, 0, 0, 0, 52.024414, -102.71177, 7.5, -0.53192735)
+mesh = SubResource("BoxMesh_3p835")
+skeleton = NodePath("../../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Geometry/Walls/Wall8"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/Walls/Wall8/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_2venv")
+
 [node name="Ground" type="MeshInstance3D" parent="Geometry"]
 transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 0, -0.5, 0)
 mesh = SubResource("BoxMesh_3p835")
@@ -129,7 +141,7 @@ skeleton = NodePath("../..")
 shape = SubResource("ConvexPolygonShape3D_2venv")
 
 [node name="Ground2" type="MeshInstance3D" parent="Geometry"]
-transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 19.570822, -50, -0.5, 0)
+transform = Transform3D(78.91119, 0, 0, 0, 1, 0, 0, 0, 19.570822, -63.56431, -0.5, 0)
 mesh = SubResource("BoxMesh_3p835")
 skeleton = NodePath("../..")
 
@@ -171,13 +183,23 @@ skeleton = NodePath("../../..")
 shape = SubResource("ConvexPolygonShape3D_paw1w")
 
 [node name="Box9" type="MeshInstance3D" parent="Geometry/Boxes"]
-transform = Transform3D(3, 0, 0, 0, 9.064604, 0, 0, 0, 20.375757, -33.715385, 3.4342413, 0.052568436)
+transform = Transform3D(3, 0, 0, 0, 9.064604, 0, 0, 0, 20.375757, -34.954773, 3.4342413, 0.052568436)
 mesh = SubResource("BoxMesh_tmr53")
 skeleton = NodePath("../../..")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Geometry/Boxes/Box9"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/Boxes/Box9/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_paw1w")
+
+[node name="Box9" type="MeshInstance3D" parent="Geometry/Boxes/Box9"]
+transform = Transform3D(3, 0, 0, 0, 3.7685676, 0, 0, 0, 1.680354, -9.630553, -0.79183775, 0.052568443)
+mesh = SubResource("BoxMesh_tmr53")
+skeleton = NodePath("../../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Geometry/Boxes/Box9/Box9"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/Boxes/Box9/Box9/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_paw1w")
 
 [node name="Box8" type="MeshInstance3D" parent="Geometry/Boxes"]
@@ -252,4 +274,23 @@ skeleton = NodePath("../Box")
 shape = SubResource("ConvexPolygonShape3D_paw1w")
 
 [node name="Goal" parent="." instance=ExtResource("2_paw1w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.926192, 0.084682465, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.274714, 0.084682465, 0)
+
+[node name="Goal2" parent="." instance=ExtResource("2_paw1w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.112139, 0.084682465, 12.293911)
+
+[node name="Goal3" parent="." instance=ExtResource("2_paw1w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.748404, 0.084682465, 0)
+
+[node name="TeleportPoint" parent="." node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("3_j6w7d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -94.46038, 1, -0.34891886)
+linked_teleporter = NodePath("../TeleportPoint2")
+show_debug_shape = true
+
+[node name="TeleportPoint2" parent="." node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("3_j6w7d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.624317, 0.92219734, 0.59033436)
+linked_teleporter = NodePath("../TeleportPoint")
+show_debug_shape = true
+
+[node name="UI" parent="." instance=ExtResource("4_x4b8f")]
+position = Vector2(1101, 39.999996)
