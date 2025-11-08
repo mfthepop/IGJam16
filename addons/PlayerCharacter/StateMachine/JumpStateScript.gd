@@ -8,7 +8,7 @@ var cR : CharacterBody3D
 
 func enter(charRef : CharacterBody3D):
 	cR = charRef
-	
+	get_parent().get_parent().get_node("SoundEffects").play()
 	verifications()
 	
 	jump()

@@ -60,10 +60,6 @@ var coyoteJumpCooldownRef : float
 var coyoteJumpOn : bool = false
 @export_range(0.1, 1.0, 0.05) var inAirInputMultiplier: float = 1.0
 
-@export_group("Gravity variables")
-@onready var jumpGravity : float = (-2.0 * jumpHeight) / (jumpTimeToPeak * jumpTimeToPeak)
-@onready var fallGravity : float = (-2.0 * jumpHeight) / (jumpTimeToFall * jumpTimeToFall)
-
 @export_group("Keybind variables")
 @export var moveForwardAction : String = ""
 @export var moveBackwardAction : String = ""
@@ -75,6 +71,10 @@ var coyoteJumpOn : bool = false
 
 @export_group("HUD variables")
 @export var showHUD : bool = false
+
+@export_group("Gravity variables")
+@onready var jumpGravity : float = (-2.0 * jumpHeight) / (jumpTimeToPeak * jumpTimeToPeak)
+@onready var fallGravity : float = (-2.0 * jumpHeight) / (jumpTimeToFall * jumpTimeToFall)
 
 #references variables
 @onready var camHolder : Node3D = $CameraHolder
