@@ -1,7 +1,7 @@
-[gd_scene load_steps=29 format=3 uid="uid://c82wrhsdq1d5m"]
+[gd_scene load_steps=29 format=3 uid="uid://cbb1x2h0t6k4w"]
 
 [ext_resource type="PackedScene" uid="uid://bwggrf7sbmkcv" path="res://addons/PlayerCharacter/PlayerCharacterScene.tscn" id="1_45x2i"]
-[ext_resource type="Script" uid="uid://0xytswmcrswe" path="res://scripts/flip_test.gd" id="1_vxs5x"]
+[ext_resource type="Script" uid="uid://dknbckpcga3s4" path="res://scripts/flip_test.gd" id="1_vxs5x"]
 [ext_resource type="PackedScene" uid="uid://t4l4a88t6o5f" path="res://scenes/goal.tscn" id="2_i6t0p"]
 [ext_resource type="PackedScene" uid="uid://b7rb58kpi6dj6" path="res://scenes/teleport_point.tscn" id="3_i6t0p"]
 [ext_resource type="Texture2D" uid="uid://dle0820vcs7g" path="res://assets/Poliigon_BrickWallReclaimed_8320_BaseColor.jpg" id="3_n0tof"]
@@ -34,6 +34,7 @@ material = SubResource("StandardMaterial3D_0be37")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_40okq"]
 albedo_texture = ExtResource("5_xk2te")
+uv1_scale = Vector3(4, 4, 4)
 
 [sub_resource type="BoxMesh" id="BoxMesh_4awmc"]
 material = SubResource("StandardMaterial3D_40okq")
@@ -187,7 +188,7 @@ skeleton = NodePath("../../../..")
 shape = SubResource("ConvexPolygonShape3D_2venv")
 
 [node name="Wall9" type="MeshInstance3D" parent="Level/Geometry/Walls"]
-transform = Transform3D(1, 0, 0, 0, 10, 0, 0, 0, 13, 25, 3, 0.5)
+transform = Transform3D(1, 0, 0, 0, 10, 0, 0, 0, 13, 25.1, 3, 0.5)
 mesh = SubResource("BoxMesh_3p835")
 skeleton = NodePath("../../../..")
 
@@ -207,7 +208,7 @@ skeleton = NodePath("../../../..")
 shape = SubResource("ConvexPolygonShape3D_2venv")
 
 [node name="Wall10" type="MeshInstance3D" parent="Level/Geometry/Walls"]
-transform = Transform3D(1, 0, 0, 0, 10, 0, 0, 0, 13, 25, 25, 0.5)
+transform = Transform3D(1, 0, 0, 0, 10, 0, 0, 0, 13, 25.1, 25, 0.5)
 mesh = SubResource("BoxMesh_3p835")
 skeleton = NodePath("../../../..")
 
@@ -267,7 +268,7 @@ skeleton = NodePath("../../..")
 shape = SubResource("ConvexPolygonShape3D_2venv")
 
 [node name="Ground4" type="MeshInstance3D" parent="Level/Geometry"]
-transform = Transform3D(-50, 0, -4.371139e-06, 0, 1, 0, 4.371139e-06, 0, -50, -49.919468, 7.5, 3.8339562)
+transform = Transform3D(-50, 0, -4.371139e-06, 0, 1, 0, 4.371139e-06, 0, -50, -49.919468, 7.557415, 3.8339562)
 mesh = SubResource("BoxMesh_3p835")
 skeleton = NodePath("../../..")
 
