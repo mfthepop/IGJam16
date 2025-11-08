@@ -1,10 +1,16 @@
-extends Node2D
+extends Control
 
 @onready var cheese_number = 0
-func _process(delta: float) -> void:
-	if (cheese_number == 1 ) :
-		get_node("CheeseUI1").modulate = Color (1,1,1,1) 
-	elif (cheese_number == 2 ) :  
-		get_node("CheeseUI2").modulate = Color (1,1,1,1) 
-	elif (cheese_number == 3 )  : 
-		get_node("CheeseUI3").modulate = Color (1,1,1,1) 		
+
+const max_cheese = 3
+
+func show_cheese():
+	var name = "CheeseUI" + str(cheese_number)
+	var cheese = get_node("Icons").get_node(name)
+	if cheese:
+		cheese.modulate = Color (1,1,1,1) 
+		
+	if (cheese_number == max_cheese ) : 
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		get_tree().paused = false
+		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")

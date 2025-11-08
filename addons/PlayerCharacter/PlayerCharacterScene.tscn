@@ -1,7 +1,8 @@
-[gd_scene load_steps=21 format=3 uid="uid://bwggrf7sbmkcv"]
+[gd_scene load_steps=22 format=3 uid="uid://bwggrf7sbmkcv"]
 
 [ext_resource type="Script" uid="uid://d3s8yxuvpmekm" path="res://addons/PlayerCharacter/StateMachine/PlayerCharacterScript.gd" id="1_h128t"]
 [ext_resource type="Script" uid="uid://b0fbr48rbvn27" path="res://addons/PlayerCharacter/Camera/CameraScript.gd" id="2_x12n0"]
+[ext_resource type="PackedScene" uid="uid://c4526b3cqlbne" path="res://scenes/ui.tscn" id="10_2rfya"]
 [ext_resource type="Script" uid="uid://cyymc8do3bwa7" path="res://scripts/menu.gd" id="12_17hed"]
 [ext_resource type="AudioStream" uid="uid://c8hsn3k753b03" path="res://assets/sounds/jump_audio.tres" id="13_ypkm2"]
 [ext_resource type="Script" uid="uid://dx02l6p6behb8" path="res://addons/PlayerCharacter/UI/HUDScript.gd" id="16_5jm78"]
@@ -139,6 +140,8 @@ current = true
 fov = 90.0
 near = 0.01
 far = 1000.0
+
+[node name="UI" parent="CameraHolder/Camera" instance=ExtResource("10_2rfya")]
 
 [node name="Hitbox" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_5yjma")

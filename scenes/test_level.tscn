@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bwggrf7sbmkcv" path="res://addons/PlayerCharacter/PlayerCharacterScene.tscn" id="1_2venv"]
 [ext_resource type="PackedScene" uid="uid://t4l4a88t6o5f" path="res://scenes/goal.tscn" id="2_paw1w"]
 [ext_resource type="PackedScene" uid="uid://b7rb58kpi6dj6" path="res://scenes/teleport_point.tscn" id="3_j6w7d"]
-[ext_resource type="PackedScene" uid="uid://dlrgox4fvdjva" path="res://scenes/ui.tscn" id="4_x4b8f"]
+[ext_resource type="PackedScene" uid="uid://c4526b3cqlbne" path="res://scenes/ui.tscn" id="4_x4b8f"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2venv"]
 
@@ -34,7 +34,7 @@ albedo_color = Color(0.8156863, 0.4392157, 0.4392157, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_j6w7d"]
 material = SubResource("StandardMaterial3D_paw1w")
 
-[node name="TestLevel" type="Node3D"]
+[node name="TestLevel2" type="Node3D"]
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("1_2venv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3662055, 0)
@@ -293,4 +293,7 @@ linked_teleporter = NodePath("../TeleportPoint")
 show_debug_shape = true
 
 [node name="UI" parent="." instance=ExtResource("4_x4b8f")]
-position = Vector2(1101, 39.999996)
+offset_left = 1101.0
+offset_top = 39.999996
+offset_right = 1101.0
+offset_bottom = 39.999996
