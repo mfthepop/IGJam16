@@ -290,7 +290,7 @@ skeleton = NodePath("")
 shape = SubResource("BoxShape3D_vxs5x")
 
 [node name="Box18" type="MeshInstance3D" parent="Level/Geometry/Boxes"]
-transform = Transform3D(0.023553621, 0.053366166, 4.570019, 0.123831086, 1.1671393, -0.2089842, -20.192198, 0.007219858, 0.0040492, 16.808441, 7.831145, -15.23601)
+transform = Transform3D(0.011555371, 0.053534154, 4.572079, 0.060751345, 1.1708132, -0.20907842, -9.906262, 0.007242585, 0.0040510255, 16.808441, 7.831145, -21.658964)
 mesh = SubResource("BoxMesh_j6w7d")
 skeleton = NodePath("")
 
@@ -402,13 +402,33 @@ skeleton = NodePath("")
 shape = SubResource("ConvexPolygonShape3D_paw1w")
 
 [node name="Box9" type="MeshInstance3D" parent="Level/Geometry/Boxes"]
-transform = Transform3D(-6.361041e-07, 0, 3.6201942, 0, 0.69734126, 0, -14.552366, 0, -1.5824371e-07, -0.047801018, 20.101234, -24.737259)
+transform = Transform3D(-6.361041e-07, 0, 4.5872984, 0, 0.69734126, 0, -14.552366, 0, -2.0051718e-07, 0.4227934, 20.101234, -24.737259)
 mesh = SubResource("BoxMesh_j6w7d")
 skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Level/Geometry/Boxes/Box9"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Geometry/Boxes/Box9/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_paw1w")
+
+[node name="Box27" type="MeshInstance3D" parent="Level/Geometry/Boxes"]
+transform = Transform3D(-6.361041e-07, 0, 3.6201942, 0, 0.69734126, 0, -14.552366, 0, -1.5824371e-07, 5.810347, 11.333036, -23.983751)
+mesh = SubResource("BoxMesh_j6w7d")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level/Geometry/Boxes/Box27"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Geometry/Boxes/Box27/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_paw1w")
+
+[node name="Box31" type="MeshInstance3D" parent="Level/Geometry/Boxes"]
+transform = Transform3D(-6.361041e-07, 0, 3.6201942, 0, 0.69734126, 0, -14.552366, 0, -1.5824371e-07, 0.8103471, 11.333036, -23.983751)
+mesh = SubResource("BoxMesh_j6w7d")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level/Geometry/Boxes/Box31"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Geometry/Boxes/Box31/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_paw1w")
 
 [node name="Box5" type="MeshInstance3D" parent="Level/Geometry/Boxes"]
@@ -439,6 +459,116 @@ skeleton = NodePath("")
 [node name="StaticBody3D" type="StaticBody3D" parent="Level/Geometry/Boxes/Box10"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Geometry/Boxes/Box10/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_paw1w")
+
+[node name="Box19" type="MeshInstance3D" parent="Level/Geometry/Boxes"]
+transform = Transform3D(13.971693, 0, 0, 0, 7.4320087, 0, 0, 0, 18.794813, -17.757145, 3.1240635, -19.710178)
+mesh = SubResource("BoxMesh_j6w7d")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level/Geometry/Boxes/Box19"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Geometry/Boxes/Box19/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_paw1w")
+
+[node name="Box28" type="MeshInstance3D" parent="Level/Geometry/Boxes"]
+transform = Transform3D(10.690549, 0, 0, 0, 11.836113, 0, 0, 0, 5.0014853, -11.531485, 24.422878, -17.52138)
+mesh = SubResource("BoxMesh_j6w7d")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level/Geometry/Boxes/Box28"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Geometry/Boxes/Box28/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_paw1w")
+
+[node name="Box29" type="MeshInstance3D" parent="Level/Geometry/Boxes"]
+transform = Transform3D(1.5136021, 0, 0, 0, 28.62217, 0, 0, 0, 5.0014853, -2.5906496, 34.10698, -24.344442)
+mesh = SubResource("BoxMesh_j6w7d")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level/Geometry/Boxes/Box29"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Geometry/Boxes/Box29/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_paw1w")
+
+[node name="Box30" type="MeshInstance3D" parent="Level/Geometry/Boxes"]
+transform = Transform3D(1.5136021, 0, 0, 0, 28.62217, 0, 0, 0, 8.46417, 3.2692199, 25.361094, -24.16572)
+mesh = SubResource("BoxMesh_j6w7d")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level/Geometry/Boxes/Box30"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Geometry/Boxes/Box30/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_paw1w")
+
+[node name="Box26" type="MeshInstance3D" parent="Level/Geometry/Boxes"]
+transform = Transform3D(-1.1762513e-07, 0.23835827, 7.473607, 5.7430615e-08, 0.48818776, -3.6489973, -2.994568, 8.2722746e-16, -3.6354115e-07, 11.236256, 9.614455, -18.172945)
+mesh = SubResource("BoxMesh_j6w7d")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level/Geometry/Boxes/Box26"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Geometry/Boxes/Box26/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_paw1w")
+
+[node name="Box20" type="MeshInstance3D" parent="Level/Geometry/Boxes"]
+transform = Transform3D(13.971693, 0, 0, 0, 7.4320087, 0, 0, 0, 18.794813, -22.682564, 6.769231, -25.088404)
+mesh = SubResource("BoxMesh_j6w7d")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level/Geometry/Boxes/Box20"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Geometry/Boxes/Box20/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_paw1w")
+
+[node name="Box22" type="MeshInstance3D" parent="Level/Geometry/Boxes"]
+transform = Transform3D(13.971693, 0, 0, 0, 7.4320087, 0, 0, 0, 6.5618463, 20.677881, 3.3101292, -11.284467)
+mesh = SubResource("BoxMesh_j6w7d")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level/Geometry/Boxes/Box22"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Geometry/Boxes/Box22/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_paw1w")
+
+[node name="Box25" type="MeshInstance3D" parent="Level/Geometry/Boxes"]
+transform = Transform3D(13.971693, 0, 0, 0, 7.4320087, 0, 0, 0, 6.5618463, 25.536898, 5.7828484, -11.284467)
+mesh = SubResource("BoxMesh_j6w7d")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level/Geometry/Boxes/Box25"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Geometry/Boxes/Box25/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_paw1w")
+
+[node name="Box23" type="MeshInstance3D" parent="Level/Geometry/Boxes"]
+transform = Transform3D(13.971693, 0, 0, 0, 7.4320087, 0, 0, 0, 6.5618463, 17.759602, 1.1308198, -11.284467)
+mesh = SubResource("BoxMesh_j6w7d")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level/Geometry/Boxes/Box23"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Geometry/Boxes/Box23/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_paw1w")
+
+[node name="Box24" type="MeshInstance3D" parent="Level/Geometry/Boxes"]
+transform = Transform3D(13.971693, 0, 0, 0, 7.4320087, 0, 0, 0, 6.5618463, 14.350962, -0.9966812, -11.284467)
+mesh = SubResource("BoxMesh_j6w7d")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level/Geometry/Boxes/Box24"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Geometry/Boxes/Box24/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_paw1w")
+
+[node name="Box21" type="MeshInstance3D" parent="Level/Geometry/Boxes"]
+transform = Transform3D(13.971693, 0, 0, 0, 7.4320087, 0, 0, 0, 18.794813, -28.36706, 3.1200995, -11.9320345)
+mesh = SubResource("BoxMesh_j6w7d")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level/Geometry/Boxes/Box21"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Geometry/Boxes/Box21/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_paw1w")
 
 [node name="Goal" parent="Level" instance=ExtResource("2_i6t0p")]
