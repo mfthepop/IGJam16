@@ -69,15 +69,11 @@ script = ExtResource("1_vxs5x")
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("1_45x2i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47, 9.366205, 0)
-autoBunnyHop = null
-continiousCrouch = null
 walkSpeed = 6.0
 walkAccel = 15.0
 walkDeccel = 15.0
-continiousRun = null
 jumpHeight = 2.5
-nbJumpsInAirAllowed = null
-inAirInputMultiplier = null
+nbJumpsInAirAllowed = 0
 showHUD = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -362,7 +358,7 @@ skeleton = NodePath("")
 shape = SubResource("BoxShape3D_n0tof")
 
 [node name="Box12" type="MeshInstance3D" parent="Level/Geometry/Boxes"]
-transform = Transform3D(-3.4325982e-08, 5.831644, 0, -0.7852869, -2.5490925e-07, 0, 0, 0, 4.4850326, 21.698637, 23.372448, 16.01226)
+transform = Transform3D(-3.4325982e-08, 8.042815, 0, -0.7852869, -3.5156262e-07, 0, 0, 0, 4.4850326, 21.698637, 23.372448, 16.01226)
 mesh = SubResource("BoxMesh_j6w7d")
 skeleton = NodePath("")
 
@@ -373,7 +369,7 @@ transform = Transform3D(0.72782063, -0.68576753, 0, 0.68576753, 0.72782063, 0, 0
 shape = SubResource("ConvexPolygonShape3D_paw1w")
 
 [node name="Box13" type="MeshInstance3D" parent="Level/Geometry/Boxes"]
-transform = Transform3D(-1.3011005e-15, -5.264379e-07, 6.7841067, -0.792374, -5.264379e-07, 0, 3.4635768e-08, -12.043495, -2.965427e-07, 11.256081, 23.36874, 19.869715)
+transform = Transform3D(-1.3011005e-15, -5.264379e-07, 4.4850326, -0.792374, -5.264379e-07, 0, 3.4635768e-08, -12.043495, -1.96047e-07, 11.256081, 23.36874, 19.869715)
 mesh = SubResource("BoxMesh_j6w7d")
 skeleton = NodePath("")
 
@@ -384,7 +380,7 @@ transform = Transform3D(0.72782063, -0.68576753, 0, 0.68576753, 0.72782063, 0, 0
 shape = SubResource("ConvexPolygonShape3D_paw1w")
 
 [node name="Box3" type="MeshInstance3D" parent="Level/Geometry/Boxes"]
-transform = Transform3D(14.552366, 0, 0, 0, 0.6973413, 0, 0, 0, 34.948997, -26.045841, 20.101234, -10.737258)
+transform = Transform3D(14.552366, 0, 0, 0, 0.6973413, 0, 0, 0, 34.948997, -27.48864, 20.101234, -10.737258)
 mesh = SubResource("BoxMesh_j6w7d")
 skeleton = NodePath("")
 
@@ -394,7 +390,7 @@ skeleton = NodePath("")
 shape = SubResource("ConvexPolygonShape3D_paw1w")
 
 [node name="Box6" type="MeshInstance3D" parent="Level/Geometry/Boxes"]
-transform = Transform3D(-6.361041e-07, 0, 3.6201942, 0, 0.69734126, 0, -14.552366, 0, -1.5824371e-07, -13.713444, 20.101234, -24.737259)
+transform = Transform3D(-6.361041e-07, 0, 3.6201942, 0, 0.69734126, 0, -14.552366, 0, -1.5824371e-07, -15.047801, 20.101234, -24.737259)
 mesh = SubResource("BoxMesh_j6w7d")
 skeleton = NodePath("")
 
@@ -717,10 +713,10 @@ shape = SubResource("ConvexPolygonShape3D_paw1w")
 transform = Transform3D(0.6360783, 0, -0.77162457, 0, 0.9999999, 0, 0.7716247, 0, 0.63607824, -28.073807, 9.050956, 0)
 
 [node name="Goal3" parent="Level" instance=ExtResource("2_i6t0p")]
-transform = Transform3D(0.6726511, 0, 0.7399599, 0, 0.9999999, 0, -0.73995996, 0, 0.672651, 9.758021, 24.743807, 23.214085)
+transform = Transform3D(0.6726511, 0, 0.7399599, 0, 0.9999999, 0, -0.73995996, 0, 0.672651, 11.019407, 24.743807, 22.62547)
 
 [node name="Goal2" parent="Level" instance=ExtResource("2_i6t0p")]
-transform = Transform3D(0.6360783, 0, -0.77162457, 0, 0.9999999, 0, 0.7716247, 0, 0.63607824, -22.22375, 21.404413, -23.133614)
+transform = Transform3D(0.6360783, 0, -0.77162457, 0, 0.9999999, 0, 0.7716247, 0, 0.63607824, -21.955349, 21.404413, -22.63361)
 
 [node name="Lights" type="Node3D" parent="Level"]
 
