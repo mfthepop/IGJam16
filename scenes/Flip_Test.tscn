@@ -1,7 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://cbb1x2h0t6k4w"]
+[gd_scene load_steps=21 format=3 uid="uid://cbb1x2h0t6k4w"]
 
 [ext_resource type="PackedScene" uid="uid://bwggrf7sbmkcv" path="res://addons/PlayerCharacter/PlayerCharacterScene.tscn" id="1_45x2i"]
-[ext_resource type="Script" uid="uid://bounvt341rcil" path="res://scripts/flip_test.gd" id="1_vxs5x"]
+[ext_resource type="Script" uid="uid://dknbckpcga3s4" path="res://scripts/flip_test.gd" id="1_vxs5x"]
 [ext_resource type="PackedScene" uid="uid://t4l4a88t6o5f" path="res://scenes/goal.tscn" id="2_i6t0p"]
 [ext_resource type="PackedScene" uid="uid://b7rb58kpi6dj6" path="res://scenes/teleport_point.tscn" id="3_i6t0p"]
 
@@ -25,6 +25,14 @@ albedo_color = Color(0.8156863, 0.4392157, 0.4392157, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_j6w7d"]
 material = SubResource("StandardMaterial3D_paw1w")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_vxs5x"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_437wx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n0tof"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xk2te"]
+
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_paw1w"]
 points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
 
@@ -43,6 +51,11 @@ script = ExtResource("1_vxs5x")
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("1_45x2i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47, 9.366205, 0)
+walkSpeed = 6.0
+walkAccel = 15.0
+walkDeccel = 15.0
+jumpHeight = 2.5
+nbJumpsInAirAllowed = 0
 showHUD = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -244,8 +257,18 @@ skeleton = NodePath("../../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Geometry/Ground4/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_2venv")
 
+[node name="Ground5" type="MeshInstance3D" parent="Level/Geometry"]
+transform = Transform3D(-50, 0, -4.371139e-06, 0, 1, 0, 4.371139e-06, 0, -50, -49.919468, 29.5, 3.8339562)
+mesh = SubResource("BoxMesh_3p835")
+skeleton = NodePath("../../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level/Geometry/Ground5"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Geometry/Ground5/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_2venv")
+
 [node name="Ceiling" type="MeshInstance3D" parent="Level/Geometry"]
-transform = Transform3D(-50, -8.742278e-08, 0, 4.371139e-06, -1, 0, 0, 0, 50, 0, 30, 0)
+transform = Transform3D(-50, -8.742278e-08, 0, 4.371139e-06, -1, 0, 0, 0, 50, 0.008227348, 29.967321, -0.020584106)
 mesh = SubResource("BoxMesh_3p835")
 skeleton = NodePath("../../..")
 
@@ -264,11 +287,92 @@ skeleton = NodePath("")
 [node name="StaticBody3D" type="StaticBody3D" parent="Level/Geometry/Boxes/Box7"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Geometry/Boxes/Box7/StaticBody3D"]
+shape = SubResource("BoxShape3D_vxs5x")
+
+[node name="Box18" type="MeshInstance3D" parent="Level/Geometry/Boxes"]
+transform = Transform3D(0.011555371, 0.053534154, 4.572079, 0.060751345, 1.1708132, -0.20907842, -9.906262, 0.007242585, 0.0040510255, 16.808441, 7.831145, -21.658964)
+mesh = SubResource("BoxMesh_j6w7d")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level/Geometry/Boxes/Box18"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Geometry/Boxes/Box18/StaticBody3D"]
+shape = SubResource("BoxShape3D_vxs5x")
+
+[node name="Box11" type="MeshInstance3D" parent="Level/Geometry/Boxes"]
+transform = Transform3D(11.183093, 0.05336617, -0.005336488, -0.511396, 1.1671392, -0.028054908, 0.009909051, 0.007219862, 4.574707, 21.553839, 25.095964, -5.122773)
+mesh = SubResource("BoxMesh_j6w7d")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level/Geometry/Boxes/Box11"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Geometry/Boxes/Box11/StaticBody3D"]
+shape = SubResource("BoxShape3D_437wx")
+
+[node name="Box14" type="MeshInstance3D" parent="Level/Geometry/Boxes"]
+transform = Transform3D(-0.97848994, 0.053366166, 0.9423744, 0.068486795, 1.1671393, -0.041598536, -3.8387618, 0.007219858, -0.24095081, 17.29854, 25.243612, 2.4623)
+mesh = SubResource("BoxMesh_j6w7d")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level/Geometry/Boxes/Box14"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Geometry/Boxes/Box14/StaticBody3D"]
+shape = SubResource("BoxShape3D_n0tof")
+
+[node name="Box16" type="MeshInstance3D" parent="Level/Geometry/Boxes"]
+transform = Transform3D(0.93195295, 0.053366162, 0.94521827, -0.018791102, 1.1671393, -0.044635475, -3.8508878, 0.007219858, 0.22896998, 17.290045, 25.221464, 6.105297)
+mesh = SubResource("BoxMesh_j6w7d")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level/Geometry/Boxes/Box16"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Geometry/Boxes/Box16/StaticBody3D"]
+shape = SubResource("BoxShape3D_n0tof")
+
+[node name="Box17" type="MeshInstance3D" parent="Level/Geometry/Boxes"]
+transform = Transform3D(-3.846679, 0.05336616, 0.22900242, 0.18164942, 1.1671394, -0.004617432, -0.93182063, 0.0072198543, -0.94625247, 18.192728, 25.16364, 8.780669)
+mesh = SubResource("BoxMesh_j6w7d")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level/Geometry/Boxes/Box17"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Geometry/Boxes/Box17/StaticBody3D"]
+shape = SubResource("BoxShape3D_n0tof")
+
+[node name="Box15" type="MeshInstance3D" parent="Level/Geometry/Boxes"]
+transform = Transform3D(1.022788, 0.053366166, 0.93952996, -0.023087628, 1.1671393, -0.04451361, -3.8277404, 0.0072198594, 0.25131482, 17.29425, 25.266209, -1.1589153)
+mesh = SubResource("BoxMesh_j6w7d")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level/Geometry/Boxes/Box15"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Geometry/Boxes/Box15/StaticBody3D"]
+shape = SubResource("BoxShape3D_xk2te")
+
+[node name="Box12" type="MeshInstance3D" parent="Level/Geometry/Boxes"]
+transform = Transform3D(-3.4325982e-08, 8.042815, 0, -0.7852869, -3.5156262e-07, 0, 0, 0, 4.4850326, 21.698637, 23.372448, 16.01226)
+mesh = SubResource("BoxMesh_j6w7d")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level/Geometry/Boxes/Box12"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Geometry/Boxes/Box12/StaticBody3D"]
+transform = Transform3D(0.72782063, -0.68576753, 0, 0.68576753, 0.72782063, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_paw1w")
+
+[node name="Box13" type="MeshInstance3D" parent="Level/Geometry/Boxes"]
+transform = Transform3D(-1.3011005e-15, -5.264379e-07, 4.4850326, -0.792374, -5.264379e-07, 0, 3.4635768e-08, -12.043495, -1.96047e-07, 11.256081, 23.36874, 19.869715)
+mesh = SubResource("BoxMesh_j6w7d")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level/Geometry/Boxes/Box13"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Geometry/Boxes/Box13/StaticBody3D"]
 transform = Transform3D(0.72782063, -0.68576753, 0, 0.68576753, 0.72782063, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_paw1w")
 
 [node name="Box3" type="MeshInstance3D" parent="Level/Geometry/Boxes"]
-transform = Transform3D(5.1548195, 0, 0, 0, 0.6973413, 0, 0, 0, 34.948997, -22.777067, 20.101234, -10.737258)
+transform = Transform3D(14.552366, 0, 0, 0, 0.6973413, 0, 0, 0, 34.948997, -27.48864, 20.101234, -10.737258)
 mesh = SubResource("BoxMesh_j6w7d")
 skeleton = NodePath("")
 
@@ -277,8 +381,78 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Geometry/Boxes/Box3/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_paw1w")
 
+[node name="Box6" type="MeshInstance3D" parent="Level/Geometry/Boxes"]
+transform = Transform3D(-6.361041e-07, 0, 3.6201942, 0, 0.69734126, 0, -14.552366, 0, -1.5824371e-07, -15.047801, 20.101234, -24.737259)
+mesh = SubResource("BoxMesh_j6w7d")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level/Geometry/Boxes/Box6"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Geometry/Boxes/Box6/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_paw1w")
+
+[node name="Box8" type="MeshInstance3D" parent="Level/Geometry/Boxes"]
+transform = Transform3D(-6.361041e-07, 0, 3.6201942, 0, 0.69734126, 0, -14.552366, 0, -1.5824371e-07, -8.047801, 20.101234, -24.737259)
+mesh = SubResource("BoxMesh_j6w7d")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level/Geometry/Boxes/Box8"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Geometry/Boxes/Box8/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_paw1w")
+
+[node name="Box9" type="MeshInstance3D" parent="Level/Geometry/Boxes"]
+transform = Transform3D(-6.361041e-07, 0, 4.5872984, 0, 0.69734126, 0, -14.552366, 0, -2.0051718e-07, 0.4227934, 20.101234, -24.737259)
+mesh = SubResource("BoxMesh_j6w7d")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level/Geometry/Boxes/Box9"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Geometry/Boxes/Box9/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_paw1w")
+
+[node name="Box27" type="MeshInstance3D" parent="Level/Geometry/Boxes"]
+transform = Transform3D(-6.361041e-07, 0, 3.6201942, 0, 0.69734126, 0, -14.552366, 0, -1.5824371e-07, 5.810347, 11.333036, -23.983751)
+mesh = SubResource("BoxMesh_j6w7d")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level/Geometry/Boxes/Box27"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Geometry/Boxes/Box27/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_paw1w")
+
+[node name="Box31" type="MeshInstance3D" parent="Level/Geometry/Boxes"]
+transform = Transform3D(-6.361041e-07, 0, 3.6201942, 0, 0.69734126, 0, -14.552366, 0, -1.5824371e-07, 0.8103471, 11.333036, -23.983751)
+mesh = SubResource("BoxMesh_j6w7d")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level/Geometry/Boxes/Box31"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Geometry/Boxes/Box31/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_paw1w")
+
+[node name="Box32" type="MeshInstance3D" parent="Level/Geometry/Boxes"]
+transform = Transform3D(-6.361041e-07, 0, 2.750467, 0, 0.69734126, 0, -14.552366, 0, -1.2022673e-07, -4.189653, 9.333036, -27.831133)
+mesh = SubResource("BoxMesh_j6w7d")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level/Geometry/Boxes/Box32"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Geometry/Boxes/Box32/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_paw1w")
+
+[node name="Box33" type="MeshInstance3D" parent="Level/Geometry/Boxes"]
+transform = Transform3D(-2.3324186e-07, 0, 3.6201942, 0, 0.69734126, 0, -5.335952, 0, -1.5824371e-07, -9.798683, 6.4901466, -24.281414)
+mesh = SubResource("BoxMesh_j6w7d")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level/Geometry/Boxes/Box33"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Geometry/Boxes/Box33/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_paw1w")
+
 [node name="Box5" type="MeshInstance3D" parent="Level/Geometry/Boxes"]
-transform = Transform3D(8.556402, 0, 0, 0, 0.6973413, 0, 0, 0, 7.7966766, -21.89105, 20.101234, 6.914122)
+transform = Transform3D(7.4675508, 0, 0, 0, 0.6973413, 0, 0, 0, 7.7966766, -21.036762, 20.101234, 6.914122)
 mesh = SubResource("BoxMesh_j6w7d")
 skeleton = NodePath("")
 
@@ -297,13 +471,220 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Geometry/Boxes/Box4/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_paw1w")
 
+[node name="Box10" type="MeshInstance3D" parent="Level/Geometry/Boxes"]
+transform = Transform3D(5.5301924, 0, 0, 0, 7.4320087, 0, 0, 0, 18.794813, -14.237739, 3.1240635, 30.0369)
+mesh = SubResource("BoxMesh_j6w7d")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level/Geometry/Boxes/Box10"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Geometry/Boxes/Box10/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_paw1w")
+
+[node name="Box19" type="MeshInstance3D" parent="Level/Geometry/Boxes"]
+transform = Transform3D(13.971693, 0, 0, 0, 7.4320087, 0, 0, 0, 18.794813, -17.757145, 3.1240635, -30.973988)
+mesh = SubResource("BoxMesh_j6w7d")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level/Geometry/Boxes/Box19"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Geometry/Boxes/Box19/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_paw1w")
+
+[node name="Box28" type="MeshInstance3D" parent="Level/Geometry/Boxes"]
+transform = Transform3D(10.690549, 0, 0, 0, 11.836113, 0, 0, 0, 5.0014853, -11.531485, 24.422878, -17.52138)
+mesh = SubResource("BoxMesh_j6w7d")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level/Geometry/Boxes/Box28"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Geometry/Boxes/Box28/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_paw1w")
+
+[node name="Box29" type="MeshInstance3D" parent="Level/Geometry/Boxes"]
+transform = Transform3D(1.5136021, 0, 0, 0, 28.62217, 0, 0, 0, 5.0014853, -2.5906496, 34.10698, -24.344442)
+mesh = SubResource("BoxMesh_j6w7d")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level/Geometry/Boxes/Box29"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Geometry/Boxes/Box29/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_paw1w")
+
+[node name="Box30" type="MeshInstance3D" parent="Level/Geometry/Boxes"]
+transform = Transform3D(1.5136021, 0, 0, 0, 28.62217, 0, 0, 0, 8.46417, 3.2692199, 25.361094, -24.16572)
+mesh = SubResource("BoxMesh_j6w7d")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level/Geometry/Boxes/Box30"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Geometry/Boxes/Box30/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_paw1w")
+
+[node name="Box26" type="MeshInstance3D" parent="Level/Geometry/Boxes"]
+transform = Transform3D(-1.1762513e-07, 0.23835827, 7.473607, 5.7430615e-08, 0.48818776, -3.6489973, -2.994568, 8.2722746e-16, -3.6354115e-07, 11.236256, 9.614455, -18.172945)
+mesh = SubResource("BoxMesh_j6w7d")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level/Geometry/Boxes/Box26"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Geometry/Boxes/Box26/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_paw1w")
+
+[node name="Box20" type="MeshInstance3D" parent="Level/Geometry/Boxes"]
+transform = Transform3D(13.971693, 0, 0, 0, 13.864602, 0, 0, 0, 18.794813, -22.682564, 6.769231, -25.088404)
+mesh = SubResource("BoxMesh_j6w7d")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level/Geometry/Boxes/Box20"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Geometry/Boxes/Box20/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_paw1w")
+
+[node name="Box22" type="MeshInstance3D" parent="Level/Geometry/Boxes"]
+transform = Transform3D(13.971693, 0, 0, 0, 7.4320087, 0, 0, 0, 6.5618463, 20.677881, 3.3101292, -11.284467)
+mesh = SubResource("BoxMesh_j6w7d")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level/Geometry/Boxes/Box22"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Geometry/Boxes/Box22/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_paw1w")
+
+[node name="Box25" type="MeshInstance3D" parent="Level/Geometry/Boxes"]
+transform = Transform3D(13.971693, 0, 0, 0, 7.4320087, 0, 0, 0, 6.5618463, 25.536898, 5.7828484, -11.284467)
+mesh = SubResource("BoxMesh_j6w7d")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level/Geometry/Boxes/Box25"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Geometry/Boxes/Box25/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_paw1w")
+
+[node name="Box23" type="MeshInstance3D" parent="Level/Geometry/Boxes"]
+transform = Transform3D(13.971693, 0, 0, 0, 7.4320087, 0, 0, 0, 6.5618463, 17.759602, 1.1308198, -11.284467)
+mesh = SubResource("BoxMesh_j6w7d")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level/Geometry/Boxes/Box23"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Geometry/Boxes/Box23/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_paw1w")
+
+[node name="Box24" type="MeshInstance3D" parent="Level/Geometry/Boxes"]
+transform = Transform3D(13.971693, 0, 0, 0, 7.4320087, 0, 0, 0, 6.5618463, 14.350962, -0.9966812, -11.284467)
+mesh = SubResource("BoxMesh_j6w7d")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level/Geometry/Boxes/Box24"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Geometry/Boxes/Box24/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_paw1w")
+
+[node name="Box34" type="MeshInstance3D" parent="Level/Geometry/Boxes"]
+transform = Transform3D(13.971693, 0, 0, 0, 7.4320087, 0, 0, 0, 6.5618463, 20.677881, 7.7127256, 11.715533)
+mesh = SubResource("BoxMesh_j6w7d")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level/Geometry/Boxes/Box34"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Geometry/Boxes/Box34/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_paw1w")
+
+[node name="Box35" type="MeshInstance3D" parent="Level/Geometry/Boxes"]
+transform = Transform3D(13.971693, 0, 0, 0, 7.4320087, 0, 0, 0, 6.5618463, 25.536898, 10.185445, 11.715533)
+mesh = SubResource("BoxMesh_j6w7d")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level/Geometry/Boxes/Box35"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Geometry/Boxes/Box35/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_paw1w")
+
+[node name="Box36" type="MeshInstance3D" parent="Level/Geometry/Boxes"]
+transform = Transform3D(13.971693, 0, 0, 0, 7.4320087, 0, 0, 0, 6.5618463, 17.759602, 5.533416, 11.715533)
+mesh = SubResource("BoxMesh_j6w7d")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level/Geometry/Boxes/Box36"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Geometry/Boxes/Box36/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_paw1w")
+
+[node name="Box37" type="MeshInstance3D" parent="Level/Geometry/Boxes"]
+transform = Transform3D(13.971693, 0, 0, 0, 7.4320087, 0, 0, 0, 6.5618463, 14.350962, 3.4059153, 11.715533)
+mesh = SubResource("BoxMesh_j6w7d")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level/Geometry/Boxes/Box37"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Geometry/Boxes/Box37/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_paw1w")
+
+[node name="Box38" type="MeshInstance3D" parent="Level/Geometry/Boxes"]
+transform = Transform3D(-6.107221e-07, 0, -6.5618463, 0, 7.4320083, 0, 13.971692, 0, -2.8682737e-07, 0.58133507, 23.712727, 24.303434)
+mesh = SubResource("BoxMesh_j6w7d")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level/Geometry/Boxes/Box38"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Geometry/Boxes/Box38/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_paw1w")
+
+[node name="Box39" type="MeshInstance3D" parent="Level/Geometry/Boxes"]
+transform = Transform3D(-6.107221e-07, 0, -6.5618463, 0, 7.4320083, 0, 13.971692, 0, -2.8682737e-07, 0.58133507, 26.185444, 27.409733)
+mesh = SubResource("BoxMesh_j6w7d")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level/Geometry/Boxes/Box39"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Geometry/Boxes/Box39/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_paw1w")
+
+[node name="Box40" type="MeshInstance3D" parent="Level/Geometry/Boxes"]
+transform = Transform3D(-6.107221e-07, 0, -6.5618463, 0, 7.4320083, 0, 13.971692, 0, -2.8682737e-07, 0.58133507, 21.533417, 21.324879)
+mesh = SubResource("BoxMesh_j6w7d")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level/Geometry/Boxes/Box40"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Geometry/Boxes/Box40/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_paw1w")
+
+[node name="Box41" type="MeshInstance3D" parent="Level/Geometry/Boxes"]
+transform = Transform3D(-6.107221e-07, 0, -6.5618463, 0, 2.3113766, 0, 13.971692, 0, -2.8682737e-07, 0.58133507, 21.462948, 19.48516)
+mesh = SubResource("BoxMesh_j6w7d")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level/Geometry/Boxes/Box41"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Geometry/Boxes/Box41/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_paw1w")
+
+[node name="Box21" type="MeshInstance3D" parent="Level/Geometry/Boxes"]
+transform = Transform3D(13.971693, 0, 0, 0, 7.4320087, 0, 0, 0, 18.794813, -28.36706, 3.1200995, -11.9320345)
+mesh = SubResource("BoxMesh_j6w7d")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level/Geometry/Boxes/Box21"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Geometry/Boxes/Box21/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_paw1w")
+
 [node name="Goal" parent="Level" instance=ExtResource("2_i6t0p")]
 transform = Transform3D(0.9253148, 0.37671456, 0.04334651, -0.3592679, 0.9075029, -0.21763477, -0.12132331, 0.18580775, 0.9750673, -28.073807, 8.527228, 0)
 
-[node name="Lights" type="Node" parent="Level"]
+[node name="Lights" type="Node3D" parent="Level"]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Level/Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46, 10.433246, 0)
+light_color = Color(1, 1, 0.6117647, 1)
+light_volumetric_fog_energy = 0.0
+light_size = 5.0
+omni_range = 8.608474
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="Level/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8095593, 4.263941, -21.026148)
 light_color = Color(1, 1, 0.6117647, 1)
 light_volumetric_fog_energy = 0.0
 light_size = 5.0
@@ -328,7 +709,7 @@ light_size = 5.0
 transform = Transform3D(1, 0, 0, 0, 0.9313612, 0.36409664, 0, -0.36409664, 0.9313612, 0, 9.730066, 2.404961)
 visible = false
 
-[node name="HangingLight" type="Node" parent="Level/Lights"]
+[node name="HangingLight" type="Node3D" parent="Level/Lights"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Level/Lights/HangingLight"]
 transform = Transform3D(0.5, 0, 0, 0, 7, 0, 0, 0, 0.5, 0, 28, 0)
@@ -353,30 +734,103 @@ spot_angle = 37.478683
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="Level/Lights/HangingLight"]
 transform = Transform3D(8, 0, 0, 0, 1.5, 0, 0, 0, 8, 0, 21.62115, 0)
 mesh = SubResource("CylinderMesh_i6t0p")
+skeleton = NodePath("")
 
-[node name="TeleportPoint" parent="Level" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("3_i6t0p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.035938, 18.590601, 6.183615)
+[node name="Teleporter" type="Node3D" parent="Level"]
+
+[node name="TeleportPoint" parent="Level/Teleporter" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("3_i6t0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.44336, 18.590601, 6.183615)
 linked_teleporter = NodePath("../TeleportPoint2")
 show_debug_shape = true
 
-[node name="TeleportPoint3" parent="Level" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("3_i6t0p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.153345, 18.590601, 9.059909)
+[node name="TeleportPoint3" parent="Level/Teleporter" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("3_i6t0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.238018, 18.590601, 9.059909)
 linked_teleporter = NodePath("../TeleportPoint4")
 show_debug_shape = true
 shape_color = Color(0, 0.38679552, 0.2829285, 0.4)
 
-[node name="TeleportPoint4" parent="Level" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("3_i6t0p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.844753, 13.590601, 9.059909)
+[node name="TeleportPoint4" parent="Level/Teleporter" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("3_i6t0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.162485, 13.590601, 9.059909)
 linked_teleporter = NodePath("../TeleportPoint3")
 show_debug_shape = true
 shape_color = Color(0, 0.38508543, 0.35371125, 0.4)
 
-[node name="TeleportPoint2" parent="Level" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("3_i6t0p")]
+[node name="TeleportPoint5" parent="Level/Teleporter" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("3_i6t0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.708145, 8.590601, 25.01328)
+linked_teleporter = NodePath("../TeleportPoint6")
+show_debug_shape = true
+shape_color = Color(0, 0.38508543, 0.35371125, 0.4)
+
+[node name="TeleportPoint6" parent="Level/Teleporter" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("3_i6t0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.42976, 21.7465, 16.01328)
+linked_teleporter = NodePath("../TeleportPoint5")
+show_debug_shape = true
+shape_color = Color(0.41639748, 0.31314877, 0, 0.4)
+
+[node name="TeleportPoint11" parent="Level/Teleporter" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("3_i6t0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.95113, 5.7465, 0.0132808685)
+linked_teleporter = NodePath("../TeleportPoint12")
+show_debug_shape = true
+shape_color = Color(0.46666667, 0, 0.69411767, 0.4)
+
+[node name="TeleportPoint13" parent="Level/Teleporter" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("3_i6t0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.286673, 9.290174, -24.35633)
+linked_teleporter = NodePath("../TeleportPoint14")
+show_debug_shape = true
+shape_color = Color(0, 0, 0.69411767, 0.4)
+
+[node name="TeleportPoint14" parent="Level/Teleporter" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("3_i6t0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.286673, 6.2901735, -24.35633)
+linked_teleporter = NodePath("../TeleportPoint13")
+show_debug_shape = true
+shape_color = Color(0, 0, 0.69411767, 0.4)
+
+[node name="TeleportPoint12" parent="Level/Teleporter" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("3_i6t0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.099857, 26.7465, -5.0169563)
+linked_teleporter = NodePath("../TeleportPoint11")
+show_debug_shape = true
+shape_color = Color(0.46843702, 0.0017425257, 0.69514066, 0.4)
+
+[node name="TeleportPoint9" parent="Level/Teleporter" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("3_i6t0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.228659, 18.394108, -24.315668)
+linked_teleporter = NodePath("../TeleportPoint10")
+show_debug_shape = true
+shape_color = Color(1.3235956e-06, 0.37596497, 0.4123048, 0.4)
+
+[node name="TeleportPoint10" parent="Level/Teleporter" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("3_i6t0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.42976, 24.7465, 16.01328)
+linked_teleporter = NodePath("../TeleportPoint9")
+show_debug_shape = true
+shape_color = Color(0, 0.3764706, 0.4117647, 0.4)
+
+[node name="TeleportPoint7" parent="Level/Teleporter" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("3_i6t0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.42976, 21.53618, 24.858385)
+linked_teleporter = NodePath("../TeleportPoint8")
+show_debug_shape = true
+shape_color = Color(0.63154423, 0, 0.0724474, 0.4)
+
+[node name="TeleportPoint8" parent="Level/Teleporter" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("3_i6t0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06327486, 21.590601, -25.051788)
+linked_teleporter = NodePath("../TeleportPoint7")
+show_debug_shape = true
+shape_color = Color(0.6313726, 0, 0.07058824, 0.4)
+
+[node name="TeleportPoint2" parent="Level/Teleporter" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("3_i6t0p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.860153, 1.000001, 4.626231)
 linked_teleporter = NodePath("../TeleportPoint")
 show_debug_shape = true
 
-[connection signal="teleported_from" from="Level/TeleportPoint" to="." method="_on_teleport_point_teleported_from"]
-[connection signal="teleported_from" from="Level/TeleportPoint3" to="." method="_on_teleport_point_teleported_from"]
-[connection signal="teleported_from" from="Level/TeleportPoint4" to="." method="_on_teleport_point_teleported_from"]
-[connection signal="teleported_from" from="Level/TeleportPoint2" to="." method="_on_teleport_point_teleported_from"]
+[connection signal="teleported_from" from="Level/Teleporter/TeleportPoint" to="." method="_on_teleport_point_teleported_from"]
+[connection signal="teleported_from" from="Level/Teleporter/TeleportPoint3" to="." method="_on_teleport_point_teleported_from"]
+[connection signal="teleported_from" from="Level/Teleporter/TeleportPoint4" to="." method="_on_teleport_point_teleported_from"]
+[connection signal="teleported_from" from="Level/Teleporter/TeleportPoint5" to="." method="_on_teleport_point_teleported_from"]
+[connection signal="teleported_from" from="Level/Teleporter/TeleportPoint6" to="." method="_on_teleport_point_teleported_from"]
+[connection signal="teleported_from" from="Level/Teleporter/TeleportPoint11" to="." method="_on_teleport_point_teleported_from"]
+[connection signal="teleported_from" from="Level/Teleporter/TeleportPoint13" to="." method="_on_teleport_point_teleported_from"]
+[connection signal="teleported_from" from="Level/Teleporter/TeleportPoint14" to="." method="_on_teleport_point_teleported_from"]
+[connection signal="teleported_from" from="Level/Teleporter/TeleportPoint12" to="." method="_on_teleport_point_teleported_from"]
+[connection signal="teleported_from" from="Level/Teleporter/TeleportPoint9" to="." method="_on_teleport_point_teleported_from"]
+[connection signal="teleported_from" from="Level/Teleporter/TeleportPoint10" to="." method="_on_teleport_point_teleported_from"]
+[connection signal="teleported_from" from="Level/Teleporter/TeleportPoint7" to="." method="_on_teleport_point_teleported_from"]
+[connection signal="teleported_from" from="Level/Teleporter/TeleportPoint8" to="." method="_on_teleport_point_teleported_from"]
+[connection signal="teleported_from" from="Level/Teleporter/TeleportPoint2" to="." method="_on_teleport_point_teleported_from"]
