@@ -710,7 +710,7 @@ skeleton = NodePath("")
 shape = SubResource("ConvexPolygonShape3D_paw1w")
 
 [node name="Goal" parent="Level" instance=ExtResource("2_i6t0p")]
-transform = Transform3D(0.9253148, 0.37671456, 0.04334651, -0.3592679, 0.9075029, -0.21763477, -0.12132331, 0.18580775, 0.9750673, -28.073807, 8.527228, 0)
+transform = Transform3D(0.6360783, 0, -0.77162457, 0, 0.9999999, 0, 0.7716247, 0, 0.63607824, -28.073807, 9.050956, 0)
 
 [node name="Lights" type="Node3D" parent="Level"]
 

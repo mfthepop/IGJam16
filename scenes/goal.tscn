@@ -19,7 +19,7 @@ shape = SubResource("BoxShape3D_jbojv")
 visible = false
 
 [node name="Cheese_New" parent="." instance=ExtResource("3_w3gav")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
