@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlrgox4fvdjva"]
+
+[ext_resource type="Script" uid="uid://ddjeowaurmiao" path="res://scripts/UI.gd" id="1_x4jx1"]
+[ext_resource type="Texture2D" uid="uid://bs37k5hxi80m4" path="res://assets/cheese-3d-illustration-emmental-cheddar-edam-cheese-triangle-lump-with-holes.png" id="2_yev5y"]
+
+[node name="UI" type="Node2D"]
+scale = Vector2(0.05, 0.05)
+script = ExtResource("1_x4jx1")
+
+[node name="CheeseUI2" type="Sprite2D" parent="."]
+modulate = Color(0.38857287, 0.38857287, 0.38857287, 1)
+position = Vector2(-2160, -59.999878)
+texture = ExtResource("2_yev5y")
+
+[node name="CheeseUI1" type="Sprite2D" parent="."]
+modulate = Color(0.38857287, 0.38857287, 0.38857287, 1)
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("2_yev5y")
+
+[node name="CheeseUI3" type="Sprite2D" parent="."]
+modulate = Color(0.38857287, 0.38857287, 0.38857287, 1)
+position = Vector2(-4380, -19.999939)
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("2_yev5y")
