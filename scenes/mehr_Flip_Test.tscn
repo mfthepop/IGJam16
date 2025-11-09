@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://teiv2gliliqg"]
+[gd_scene load_steps=30 format=3 uid="uid://teiv2gliliqg"]
 
 [ext_resource type="Script" uid="uid://dknbckpcga3s4" path="res://scripts/flip_test.gd" id="1_xihhp"]
 [ext_resource type="PackedScene" uid="uid://bwggrf7sbmkcv" path="res://addons/PlayerCharacter/PlayerCharacterScene.tscn" id="2_s0b8b"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://t4l4a88t6o5f" path="res://scenes/goal.tscn" id="6_b2og3"]
 [ext_resource type="Texture2D" uid="uid://b7bo157jbl6mf" path="res://assets/Poliigon_WoodVeneerOak_7760_Normal.png" id="6_mifnb"]
 [ext_resource type="PackedScene" uid="uid://b7rb58kpi6dj6" path="res://scenes/teleport_point.tscn" id="7_m51pn"]
+[ext_resource type="PackedScene" uid="uid://e8ttdnhbbji7" path="res://assets/MouseHoleTest1.blend" id="10_i2qrv"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2venv"]
 
@@ -68,6 +69,8 @@ emission = Color(18.892, 11.145, 0, 1)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_i6t0p"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_fxs58"]
+
 [node name="TestLevel" type="Node3D"]
 script = ExtResource("1_xihhp")
 
@@ -75,7 +78,6 @@ script = ExtResource("1_xihhp")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.955906, 9.366205, 0)
 walkAccel = 15.0
 walkDeccel = 15.0
-jumpHeight = 2.5
 nbJumpsInAirAllowed = 0
 showHUD = true
 
@@ -189,7 +191,7 @@ skeleton = NodePath("../../../..")
 shape = SubResource("ConvexPolygonShape3D_2venv")
 
 [node name="Wall9" type="MeshInstance3D" parent="Level/Geometry/Walls"]
-transform = Transform3D(1, 0, 0, 0, 10, 0, 0, 0, 13, 25.1, 3, 0.5)
+transform = Transform3D(1, 0, 0, 0, 10, 0, 0, 0, 13, 25.1, 2.9715786, 0.5)
 mesh = SubResource("BoxMesh_3p835")
 skeleton = NodePath("../../../..")
 
@@ -807,6 +809,14 @@ shape_color = Color(0.6313726, 0, 0.07058824, 0.4)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.68701, 17.728233, -1.1066341)
 linked_teleporter = NodePath("../TeleportPoint")
 show_debug_shape = true
+
+[node name="MouseHoleTest1" parent="Level/Teleporter" instance=ExtResource("10_i2qrv")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 14.758214, 6.912711, -24.816278)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level/Teleporter/MouseHoleTest1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Teleporter/MouseHoleTest1/StaticBody3D"]
+shape = SubResource("BoxShape3D_fxs58")
 
 [connection signal="teleported_from" from="Level/Teleporter/TeleportPoint" to="." method="_on_teleport_point_teleported_from"]
 [connection signal="teleported_from" from="Level/Teleporter/TeleportPoint3" to="." method="_on_teleport_point_teleported_from"]
