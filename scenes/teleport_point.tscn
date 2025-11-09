@@ -1,13 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://b7rb58kpi6dj6"]
+[gd_scene load_steps=6 format=3 uid="uid://b7rb58kpi6dj6"]
 
 [ext_resource type="Script" uid="uid://4xhyv7nsd81y" path="res://scripts/teleport_point.gd" id="1_3keb1"]
+[ext_resource type="PackedScene" uid="uid://djuwjs3fmf402" path="res://assets/MouseHoleTest2.glb" id="2_2p8ry"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3keb1"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kk3fq"]
 transparency = 1
 albedo_color = Color(1, 0, 1, 0.6)
 
-[sub_resource type="BoxMesh" id="BoxMesh_2p8ry"]
-material = SubResource("StandardMaterial3D_3keb1")
+[sub_resource type="BoxMesh" id="BoxMesh_woiov"]
+material = SubResource("StandardMaterial3D_kk3fq")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sy4ho"]
 
@@ -16,7 +17,8 @@ script = ExtResource("1_3keb1")
 
 [node name="Debug" type="MeshInstance3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
-mesh = SubResource("BoxMesh_2p8ry")
+visible = false
+mesh = SubResource("BoxMesh_woiov")
 
 [node name="Area3D" type="Area3D" parent="Debug"]
 collision_mask = 2
@@ -26,6 +28,9 @@ shape = SubResource("BoxShape3D_sy4ho")
 
 [node name="LinkLine" type="MeshInstance3D" parent="."]
 visible = false
+
+[node name="MouseHoleTest2" parent="." instance=ExtResource("2_2p8ry")]
+transform = Transform3D(-3.278354e-08, 0, 0.75, 0, 0.75, 0, -0.75, 0, -3.278354e-08, 2, -1, -0.5)
 
 [connection signal="area_entered" from="Debug/Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="area_exited" from="Debug/Area3D" to="." method="_on_area_3d_area_exited"]
