@@ -34,14 +34,20 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
+	#Engine
 	if Engine.is_editor_hint():
-		# synchronisiere Linienstatus zwischen Teleportern (sicher)
-		_update_link_visibility()
+		render_lines()
+	#Ingame
+	else:
+		render_lines()
 
-		if show_link_line:
-			_draw_teleport_link()
-		else:
-			_clear_linkline_mesh()
+
+func render_lines():
+	_update_link_visibility()
+	if show_link_line:
+		_draw_teleport_link()
+	else:
+		_clear_linkline_mesh()
 
 
 func _update_link_visibility() -> void:
@@ -111,3 +117,14 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 func _on_area_3d_body_exited(body: Node3D) -> void:
 	if body.is_in_group("PlayerCharacter"):
 		entered_from_teleport = false
+
+
+func _on_area_3d_area_entered(area: Area3D) -> void:
+	print(area.name)
+	if area.name == "NearDetection":
+		show_link_line = true 
+
+
+func _on_area_3d_area_exited(area: Area3D) -> void:
+	if area.name == "NearDetection":
+		show_link_line = false 
