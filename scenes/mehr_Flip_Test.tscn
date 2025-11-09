@@ -1,6 +1,6 @@
 [gd_scene load_steps=28 format=3 uid="uid://teiv2gliliqg"]
 
-[ext_resource type="Script" uid="uid://0xytswmcrswe" path="res://scripts/flip_test.gd" id="1_xihhp"]
+[ext_resource type="Script" uid="uid://dknbckpcga3s4" path="res://scripts/flip_test.gd" id="1_xihhp"]
 [ext_resource type="PackedScene" uid="uid://bwggrf7sbmkcv" path="res://addons/PlayerCharacter/PlayerCharacterScene.tscn" id="2_s0b8b"]
 [ext_resource type="Texture2D" uid="uid://dle0820vcs7g" path="res://assets/Poliigon_BrickWallReclaimed_8320_BaseColor.jpg" id="3_mifnb"]
 [ext_resource type="Texture2D" uid="uid://bahmi75lo8oal" path="res://assets/Poliigon_WoodVeneerOak_7760_BaseColor.jpg" id="4_i2qrv"]
@@ -73,7 +73,6 @@ script = ExtResource("1_xihhp")
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("2_s0b8b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.955906, 9.366205, 0)
-walkSpeed = 6.0
 walkAccel = 15.0
 walkDeccel = 15.0
 jumpHeight = 2.5
@@ -634,13 +633,13 @@ skeleton = NodePath("")
 shape = SubResource("ConvexPolygonShape3D_paw1w")
 
 [node name="Goal" parent="Level" instance=ExtResource("6_b2og3")]
-transform = Transform3D(0.6360783, 0, -0.77162457, 0, 0.9999999, 0, 0.7716247, 0, 0.63607824, -28.073807, 17.907524, 0)
+transform = Transform3D(0.6360783, 0, -0.77162457, 0, 0.9999999, 0, 0.7716247, 0, 0.63607824, -28.073807, 18.758509, 0)
 
 [node name="Goal3" parent="Level" instance=ExtResource("6_b2og3")]
-transform = Transform3D(0.6726511, 0, 0.7399599, 0, 0.9999999, 0, -0.73995996, 0, 0.672651, 43.627384, 28.268223, 0.530756)
+transform = Transform3D(0.6726511, 0, 0.7399599, 0, 0.9999999, 0, -0.73995996, 0, 0.672651, 43.627384, 28.469769, 0.530756)
 
 [node name="Goal2" parent="Level" instance=ExtResource("6_b2og3")]
-transform = Transform3D(0.6360783, 0, -0.77162457, 0, 0.9999999, 0, 0.7716247, 0, 0.63607824, -21.955349, 26.478153, 0.09649277)
+transform = Transform3D(0.6360783, 0, -0.77162457, 0, 0.9999999, 0, 0.7716247, 0, 0.63607824, -21.955349, 28.511839, 0.09649277)
 
 [node name="Lights" type="Node3D" parent="Level"]
 
@@ -688,7 +687,7 @@ light_size = 5.0
 omni_range = 8.608474
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="Level/Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29, 16.119686, 0.35911894)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29, 17.075602, 0.35911894)
 light_color = Color(1, 1, 0.6117647, 1)
 light_energy = 2.0
 light_volumetric_fog_energy = 0.0
