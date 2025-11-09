@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://b7rb58kpi6dj6"]
+[gd_scene load_steps=6 format=3 uid="uid://b7rb58kpi6dj6"]
 
 [ext_resource type="Script" uid="uid://4xhyv7nsd81y" path="res://scripts/teleport_point.gd" id="1_3keb1"]
 
@@ -10,6 +10,8 @@ albedo_color = Color(1, 0.41960785, 1, 0.52156866)
 material = SubResource("StandardMaterial3D_3keb1")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sy4ho"]
+
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_3keb1"]
 
 [node name="TeleportPoint" type="Marker3D"]
 script = ExtResource("1_3keb1")
@@ -23,6 +25,10 @@ collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Debug/Area3D"]
 shape = SubResource("BoxShape3D_sy4ho")
+
+[node name="LinkLine" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("ImmediateMesh_3keb1")
 
 [connection signal="body_entered" from="Debug/Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Debug/Area3D" to="." method="_on_area_3d_body_exited"]
