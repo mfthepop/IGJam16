@@ -120,7 +120,6 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
-	print(area.name)
 	if area.name == "NearDetection":
 		show_link_line = true 
 
