@@ -1,11 +1,13 @@
-[gd_scene load_steps=26 format=3 uid="uid://teiv2gliliqg"]
+[gd_scene load_steps=28 format=3 uid="uid://teiv2gliliqg"]
 
 [ext_resource type="Script" uid="uid://0xytswmcrswe" path="res://scripts/flip_test.gd" id="1_xihhp"]
 [ext_resource type="PackedScene" uid="uid://bwggrf7sbmkcv" path="res://addons/PlayerCharacter/PlayerCharacterScene.tscn" id="2_s0b8b"]
 [ext_resource type="Texture2D" uid="uid://dle0820vcs7g" path="res://assets/Poliigon_BrickWallReclaimed_8320_BaseColor.jpg" id="3_mifnb"]
 [ext_resource type="Texture2D" uid="uid://bahmi75lo8oal" path="res://assets/Poliigon_WoodVeneerOak_7760_BaseColor.jpg" id="4_i2qrv"]
+[ext_resource type="Texture2D" uid="uid://c5gugs5i10msg" path="res://assets/Poliigon_BrickWallReclaimed_8320_Normal.png" id="4_s0b8b"]
 [ext_resource type="Texture2D" uid="uid://wknky7wpajj5" path="res://assets/Texturelabs_Wood_161S.jpg" id="5_fxs58"]
 [ext_resource type="PackedScene" uid="uid://t4l4a88t6o5f" path="res://scenes/goal.tscn" id="6_b2og3"]
+[ext_resource type="Texture2D" uid="uid://b7bo157jbl6mf" path="res://assets/Poliigon_WoodVeneerOak_7760_Normal.png" id="6_mifnb"]
 [ext_resource type="PackedScene" uid="uid://b7rb58kpi6dj6" path="res://scenes/teleport_point.tscn" id="7_m51pn"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2venv"]
@@ -19,6 +21,9 @@ sky = SubResource("Sky_paw1w")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xk2te"]
 albedo_texture = ExtResource("3_mifnb")
+normal_enabled = true
+normal_scale = 1.14
+normal_texture = ExtResource("4_s0b8b")
 
 [sub_resource type="BoxMesh" id="BoxMesh_3p835"]
 material = SubResource("StandardMaterial3D_xk2te")
@@ -28,6 +33,9 @@ points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0be37"]
 albedo_texture = ExtResource("4_i2qrv")
+normal_enabled = true
+normal_scale = 1.69
+normal_texture = ExtResource("6_mifnb")
 
 [sub_resource type="BoxMesh" id="BoxMesh_da0tf"]
 material = SubResource("StandardMaterial3D_0be37")
