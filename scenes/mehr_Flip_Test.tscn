@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://teiv2gliliqg"]
+[gd_scene load_steps=29 format=3 uid="uid://teiv2gliliqg"]
 
 [ext_resource type="Script" uid="uid://0xytswmcrswe" path="res://scripts/flip_test.gd" id="1_xihhp"]
 [ext_resource type="PackedScene" uid="uid://bwggrf7sbmkcv" path="res://addons/PlayerCharacter/PlayerCharacterScene.tscn" id="2_s0b8b"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://t4l4a88t6o5f" path="res://scenes/goal.tscn" id="6_b2og3"]
 [ext_resource type="Texture2D" uid="uid://b7bo157jbl6mf" path="res://assets/Poliigon_WoodVeneerOak_7760_Normal.png" id="6_mifnb"]
 [ext_resource type="PackedScene" uid="uid://b7rb58kpi6dj6" path="res://scenes/teleport_point.tscn" id="7_m51pn"]
+[ext_resource type="PackedScene" uid="uid://dif03uxqwj8lg" path="res://assets/model/model.fbx" id="10_i2qrv"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2venv"]
 
@@ -808,6 +809,12 @@ shape_color = Color(0.6313726, 0, 0.07058824, 0.4)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.68701, 17.728233, -1.1066341)
 linked_teleporter = NodePath("../TeleportPoint")
 show_debug_shape = true
+
+[node name="model" parent="." instance=ExtResource("10_i2qrv")]
+transform = Transform3D(0.39885044, 0.6658655, -4.939386, 4.197936, -2.7159877, -0.027155945, -2.6866796, -4.14488, -0.775707, -1.6991911, 5.071213, -0.016933441)
+
+[node name="model2" parent="." instance=ExtResource("10_i2qrv")]
+transform = Transform3D(0.39885044, 0.6658655, -4.939386, 4.197936, -2.7159877, -0.027155945, -2.6866796, -4.14488, -0.775707, -6.474067, 15.403683, -17.973473)
 
 [connection signal="teleported_from" from="Level/Teleporter/TeleportPoint" to="." method="_on_teleport_point_teleported_from"]
 [connection signal="teleported_from" from="Level/Teleporter/TeleportPoint3" to="." method="_on_teleport_point_teleported_from"]
