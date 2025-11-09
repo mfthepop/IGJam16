@@ -17,7 +17,7 @@
 
 [sub_resource type="Curve" id="Curve_2tsxa"]
 _limits = [10.0, 30.0, 0.0, 60.0]
-_data = [Vector2(0, 10), 0.0, 0.0, 0, 0, Vector2(60, 30), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 10), 0.0, 0.0, 0, 0, Vector2(30.000002, 30), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="Curve" id="Curve_br1r7"]
@@ -69,13 +69,13 @@ crouchAccel = 7.0
 crouchDeccel = 7.0
 crouchHitboxHeight = 1.2
 crouchModelHeight = 0.6
-walkSpeed = 8.0
-walkAccel = 8.0
-walkDeccel = 8.0
+walkSpeed = 10.0
+walkAccel = 15.0
+walkDeccel = 10.0
 runSpeed = 12.0
 runAccel = 5.0
 runDeccel = 5.0
-jumpHeight = 2.0
+jumpHeight = 2.5
 jumpTimeToPeak = 0.3
 jumpTimeToFall = 0.24
 jumpCooldown = 0.2
