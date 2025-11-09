@@ -3,7 +3,7 @@ extends Node3D
 @onready var showCredits = false 
 
 func _on_start_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/test_level.tscn")
+	get_tree().change_scene_to_file("res://scenes/Flip_Test.tscn")
 
 
 func _on_quit_pressed() -> void:
