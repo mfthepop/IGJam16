@@ -1,38 +1,46 @@
-[gd_scene load_steps=6 format=3 uid="uid://b7rb58kpi6dj6"]
+[gd_scene load_steps=8 format=3 uid="uid://b7rb58kpi6dj6"]
 
 [ext_resource type="Script" uid="uid://4xhyv7nsd81y" path="res://scripts/teleport_point.gd" id="1_3keb1"]
 [ext_resource type="PackedScene" uid="uid://djuwjs3fmf402" path="res://assets/MouseHoleTest2.glb" id="2_2p8ry"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kk3fq"]
-transparency = 1
-albedo_color = Color(1, 0, 1, 0.6)
-
-[sub_resource type="BoxMesh" id="BoxMesh_woiov"]
-material = SubResource("StandardMaterial3D_kk3fq")
+[ext_resource type="Shader" uid="uid://c8s8pwqfqhhkx" path="res://shader/portal_warp.gdshader" id="2_woiov"]
+[ext_resource type="Texture2D" uid="uid://fq4fgdgm6n87" path="res://scenes/cheese_0.png" id="3_o1xuh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sy4ho"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oybkx"]
+render_priority = 0
+shader = ExtResource("2_woiov")
+shader_parameter/warp_strength = 0.30000001425
+shader_parameter/warp_speed = 1.0
+shader_parameter/albedo = ExtResource("3_o1xuh")
+shader_parameter/alpha_scissor = 0.5
+shader_parameter/tint_color = Color(1, 1, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_lqetm"]
+material = SubResource("ShaderMaterial_oybkx")
+
 [node name="TeleportPoint" type="Marker3D"]
 script = ExtResource("1_3keb1")
+show_debug_shape = true
 
-[node name="Debug" type="MeshInstance3D" parent="."]
+[node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
-visible = false
-mesh = SubResource("BoxMesh_woiov")
-
-[node name="Area3D" type="Area3D" parent="Debug"]
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Debug/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("BoxShape3D_sy4ho")
+
+[node name="Debug" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 0.01, -0.11512172, 0.20598507, -0.4513495)
+mesh = SubResource("SphereMesh_lqetm")
 
 [node name="LinkLine" type="MeshInstance3D" parent="."]
 visible = false
 
 [node name="MouseHoleTest2" parent="." instance=ExtResource("2_2p8ry")]
-transform = Transform3D(-3.278354e-08, 0, 0.75, 0, 0.75, 0, -0.75, 0, -3.278354e-08, 2, -1, -0.5)
+transform = Transform3D(-3.278354e-08, 0, 0.75, 0, 0.75, 0, -0.75, 0, -3.278354e-08, 1.347372, -1.6972706, -0.5)
 
-[connection signal="area_entered" from="Debug/Area3D" to="." method="_on_area_3d_area_entered"]
-[connection signal="area_exited" from="Debug/Area3D" to="." method="_on_area_3d_area_exited"]
-[connection signal="body_entered" from="Debug/Area3D" to="." method="_on_area_3d_body_entered"]
-[connection signal="body_exited" from="Debug/Area3D" to="." method="_on_area_3d_body_exited"]
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

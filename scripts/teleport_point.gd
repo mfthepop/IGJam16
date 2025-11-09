@@ -21,7 +21,7 @@ func _ready() -> void:
 		var mesh = $Debug.mesh.duplicate()
 		if mesh and mesh.material:
 			var mat = mesh.material.duplicate()
-			mat.albedo_color = shape_color
+			mat.set_shader_parameter("tint_color", shape_color)
 			mesh.material = mat
 			$Debug.mesh = mesh
 		$Debug.visible = show_debug_shape
