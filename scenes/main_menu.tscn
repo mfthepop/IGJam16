@@ -1,11 +1,22 @@
-[gd_scene load_steps=14 format=3 uid="uid://dlfda2g7a4rwy"]
+[gd_scene load_steps=19 format=3 uid="uid://dlfda2g7a4rwy"]
 
 [ext_resource type="Script" uid="uid://di8kfp70utkky" path="res://scripts/main_menu.gd" id="1_ekxnf"]
-[ext_resource type="PackedScene" uid="uid://dmkv0c8b22xeo" path="res://assets/Cheese.glb" id="1_l6cm7"]
+[ext_resource type="Texture2D" uid="uid://bahmi75lo8oal" path="res://assets/Poliigon_WoodVeneerOak_7760_BaseColor.jpg" id="2_wu84c"]
+[ext_resource type="Texture2D" uid="uid://dle0820vcs7g" path="res://assets/Poliigon_BrickWallReclaimed_8320_BaseColor.jpg" id="3_8ln24"]
+[ext_resource type="PackedScene" uid="uid://t4l4a88t6o5f" path="res://scenes/goal.tscn" id="4_rtw2f"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oa1go"]
+albedo_texture = ExtResource("2_wu84c")
 
 [sub_resource type="QuadMesh" id="QuadMesh_ekxnf"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tbmy8"]
+albedo_texture = ExtResource("3_8ln24")
+
 [sub_resource type="QuadMesh" id="QuadMesh_bqqt6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jk1qb"]
+albedo_texture = ExtResource("3_8ln24")
 
 [sub_resource type="QuadMesh" id="QuadMesh_wu84c"]
 
@@ -17,13 +28,15 @@ material = SubResource("StandardMaterial3D_ekxnf")
 text = "Timon
 David
 Mehrdad"
+font_size = 25
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l6cm7"]
 albedo_color = Color(0.30323282, 0.30323282, 0.30323282, 1)
 
 [sub_resource type="TextMesh" id="TextMesh_ekxnf"]
 material = SubResource("StandardMaterial3D_l6cm7")
-text = "Philipp The Mouse"
+text = "Flip & Cheese"
+font_size = 32
 
 [sub_resource type="Animation" id="Animation_bqqt6"]
 length = 0.001
@@ -165,39 +178,54 @@ text = "Deactivate Camera Motion"
 [node name="Geometry" type="Node3D" parent="."]
 
 [node name="Ground" type="MeshInstance3D" parent="Geometry"]
-transform = Transform3D(4, 0, 0, 0, -1.7484555e-07, 4, 0, -4, -1.7484555e-07, 0, 0, 0)
+transform = Transform3D(12.556622, 0, 0, 0, -6.6107805e-07, 4, 0, -15.123703, -1.7484555e-07, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_oa1go")
 mesh = SubResource("QuadMesh_ekxnf")
 skeleton = NodePath("../..")
 
 [node name="Left" type="MeshInstance3D" parent="Geometry"]
-transform = Transform3D(-1.7484555e-07, 0, 4, 0, 4, 0, -4, 0, -1.7484555e-07, -1.998987, 2, -0.009883523)
+transform = Transform3D(-6.6027906e-07, 0, 4, 0, 13.185562, 0, -15.105424, 0, -1.7484555e-07, -5.7797956, 6.340864, -0.10472953)
+material_override = SubResource("StandardMaterial3D_tbmy8")
+mesh = SubResource("QuadMesh_bqqt6")
+skeleton = NodePath("../..")
+
+[node name="Left2" type="MeshInstance3D" parent="Geometry"]
+transform = Transform3D(-15.105278, 0, 0.017522752, 0, 13.185563, 0, -0.06617212, 0, -3.9999614, 0.20138597, 6.340864, 7.646568)
+material_override = SubResource("StandardMaterial3D_tbmy8")
 mesh = SubResource("QuadMesh_bqqt6")
 skeleton = NodePath("../..")
 
 [node name="Right" type="MeshInstance3D" parent="Geometry"]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 2, -2)
+transform = Transform3D(12.019373, 0, 0, 0, 12.977183, 0, 0, 0, 4, -0.11478484, 6.5164366, -7.7806406)
+material_override = SubResource("StandardMaterial3D_jk1qb")
 mesh = SubResource("QuadMesh_wu84c")
 skeleton = NodePath("../..")
-
-[node name="Cheese" parent="." instance=ExtResource("1_l6cm7")]
-transform = Transform3D(1, 0, 0, 0, 0.235634, -0.9718419, 0, 0.9718419, 0.235634, 0, 0.9218956, -1.6715472)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.63311535, -0.46860623, 0.61609507, 0.43736932, 0.87326247, 0.21475743, -0.63864946, 0.13349487, 0.75782996, 0, 2.1620505, 0)
 
 [node name="Credit" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.08339036, 0.20051411, 0.9325824, 0.10118517, 1.6896312, -0.10736382, -1.563794, 0.09863504, -0.056677718, -0.9635771, 2.2857313, 0.46520108)
+transform = Transform3D(-0.11093455, -0.33992547, 0.91915554, 0.06989932, 1.6671863, 0.19076152, -1.5637939, 0.09863503, -0.056677718, -3.127012, 2.5830288, 1.1830232)
 mesh = SubResource("TextMesh_bqqt6")
 skeleton = NodePath("../Title")
 
 [node name="Title" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.9909833, -0.03467818, 0.12942068, 0, 0.96592593, 0.25881898, -0.1339862, -0.25648534, 0.9572161, 0.14281869, 1.1567402, -1.108666)
+transform = Transform3D(0.9909833, -0.03467818, 0.12942068, 0, 0.96592593, 0.25881898, -0.1339862, -0.25648534, 0.9572161, 0.11720407, 1.1924934, -4.8543396)
 mesh = SubResource("TextMesh_ekxnf")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_wu84c")
 }
+
+[node name="Goal" parent="." instance=ExtResource("4_rtw2f")]
+transform = Transform3D(-0.3608904, 0.28299, -0.88863647, -0.9119181, 0.09251588, 0.3998075, 0.19535454, 0.95465034, 0.2246756, 0.2993477, 0.6514914, -6.3225074)
+
+[node name="Goal2" parent="." instance=ExtResource("4_rtw2f")]
+transform = Transform3D(-0.45588765, 1.0609947, 0.20288432, -0.33104405, 0.09661498, -1.5544919, -1.8289613, -0.28195155, 0.2307936, -4.474472, 2.1116042, 3.120961)
+
+[node name="Goal3" parent="." instance=ExtResource("4_rtw2f")]
+transform = Transform3D(-0.15477315, 1.1845422, -0.052884616, 0.64218885, 0.059974432, -1.4374317, -0.9434703, -0.15349773, -0.9697369, -5.0011687, 2.385762, 0.8198304)
 
 [connection signal="pressed" from="Camera3D/ColorRect/Buttons/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Camera3D/ColorRect/Buttons/Quit" to="." method="_on_quit_pressed"]
