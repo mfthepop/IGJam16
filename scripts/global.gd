@@ -1,3 +1,3 @@
 extends Node
 
-var deactivate_camera_motion = false
+var deactivate_camera_motion = true
