@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://h4g8ylw6yc68"]
+
+[ext_resource type="PackedScene" uid="uid://12d6ejt2arap" path="res://assets/Meshes/cannon.fbx" id="1_atut1"]
+
+[node name="Canon" type="Node3D" unique_id=155474663]
+
+[node name="cannon" parent="." unique_id=1378441085 instance=ExtResource("1_atut1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1)

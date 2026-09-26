@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://m3ouibslcttn"]
+
+[ext_resource type="PackedScene" uid="uid://12d6ejt2arap" path="res://assets/Meshes/cannon.fbx" id="1_xxgnw"]
+[ext_resource type="Material" uid="uid://7rieku7exytd" path="res://assets/Meshes/CanonMat.tres" id="2_ot2x4"]
+
+[node name="cannon" unique_id=1378441085 instance=ExtResource("1_xxgnw")]
+
+[node name="Cylinder" parent="." index="0" unique_id=1008890620]
+surface_material_override/0 = ExtResource("2_ot2x4")
+
+[node name="Cylinder_001" parent="." index="1" unique_id=1020255682]
+surface_material_override/0 = ExtResource("2_ot2x4")
+
+[node name="Sphere" parent="." index="2" unique_id=529621641]
+surface_material_override/0 = ExtResource("2_ot2x4")
