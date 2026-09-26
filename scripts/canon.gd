@@ -9,8 +9,19 @@ extends Node3D
 @onready var muzzle: Marker3D = $Muzzle
 @onready var audio: AudioStreamPlayer3D = $AudioStreamPlayer3D
 
-var can_fire := true
+@onready var ammo_label: Label = $"../../UI/AmmoLabel"
 
+@export var max_ammo: int = 3
+var current_ammo: int
+
+var can_fire := true
+@onready var cheese_number = 0
+func _ready():
+	current_ammo = max_ammo
+	update_ammo_ui()
+
+func update_ammo_ui():
+	ammo_label.text = str(current_ammo)
 
 func _process(_delta):
 	if Input.is_action_just_pressed("fire") and can_fire:
@@ -21,7 +32,13 @@ func fire():
 	if not can_fire:
 		return
 
+	if current_ammo <= 0:
+		print("Out of ammo!")
+		return
+
 	can_fire = false
+
+	current_ammo -= 1
 
 	var target = get_aim_target()
 

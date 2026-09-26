@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://c4526b3cqlbne"]
+[gd_scene format=3 uid="uid://c4526b3cqlbne"]
 
 [ext_resource type="Script" uid="uid://ddjeowaurmiao" path="res://scripts/UI.gd" id="1_x4jx1"]
 [ext_resource type="Texture2D" uid="uid://bs37k5hxi80m4" path="res://assets/cheese-3d-illustration-emmental-cheddar-edam-cheese-triangle-lump-with-holes.png" id="2_yev5y"]
 [ext_resource type="AudioStream" uid="uid://chqpfbgqe0oeq" path="res://assets/sounds/pickup_audio.tres" id="3_yev5y"]
 
-[node name="UI" type="Control" groups=["UI"]]
+[node name="UI" type="Control" unique_id=2024329127 groups=["UI"]]
 layout_mode = 3
 anchors_preset = 1
 anchor_left = 1.0
@@ -13,31 +13,30 @@ grow_horizontal = 0
 scale = Vector2(0.05, 0.05)
 script = ExtResource("1_x4jx1")
 
-[node name="Icons" type="HBoxContainer" parent="."]
+[node name="AmmoLabel" type="Label" parent="." unique_id=2134056233 groups=["UI"]]
+layout_mode = 0
+offset_left = -2520.0005
+offset_top = 660.0
+offset_right = -2519.0005
+offset_bottom = 683.0
+text = "5"
+
+[node name="Icons" type="HBoxContainer" parent="." unique_id=722757964 groups=["UI"]]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -6008.0
+offset_left = -5959.999
+offset_right = 48.000977
 offset_bottom = 1500.0
 grow_horizontal = 0
 alignment = 2
 
-[node name="CheeseUI1" type="TextureRect" parent="Icons"]
+[node name="ammo" type="TextureRect" parent="Icons" unique_id=525287061]
 modulate = Color(0.27730417, 0.27730417, 0.27730417, 1)
 layout_mode = 2
 texture = ExtResource("2_yev5y")
 
-[node name="CheeseUI2" type="TextureRect" parent="Icons"]
-modulate = Color(0.27730417, 0.27730417, 0.27730417, 1)
-layout_mode = 2
-texture = ExtResource("2_yev5y")
-
-[node name="CheeseUI3" type="TextureRect" parent="Icons"]
-modulate = Color(0.27730417, 0.27730417, 0.27730417, 1)
-layout_mode = 2
-texture = ExtResource("2_yev5y")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1261917167]
 stream = ExtResource("3_yev5y")
 volume_db = -30.0

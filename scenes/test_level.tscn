@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bwggrf7sbmkcv" path="res://addons/PlayerCharacter/PlayerCharacterScene.tscn" id="1_2venv"]
 [ext_resource type="Script" uid="uid://cli0t71fad0xn" path="res://scripts/canon.gd" id="2_j6w7d"]
 [ext_resource type="PackedScene" uid="uid://ck6g5o31h76on" path="res://scenes/projectile_scene.tscn" id="3_x4b8f"]
+[ext_resource type="PackedScene" uid="uid://12d6ejt2arap" path="res://assets/Meshes/cannon.fbx" id="4_tmr53"]
 [ext_resource type="PackedScene" uid="uid://c4526b3cqlbne" path="res://scenes/ui.tscn" id="4_x4b8f"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2venv"]
@@ -32,6 +33,9 @@ script = ExtResource("2_j6w7d")
 projectile_scene = ExtResource("3_x4b8f")
 
 [node name="Muzzle" type="Marker3D" parent="PlayerCharacter/canon" unique_id=281326377]
+
+[node name="cannon" parent="PlayerCharacter" unique_id=1042833882 instance=ExtResource("4_tmr53")]
+transform = Transform3D(0.8572341, 0.39521372, 0.33008453, -0.41868016, 0.90813375, 0, -0.2997609, -0.13819985, 0.94395137, 0.76409626, -0.47984362, -0.26857805)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1022588055]
 environment = SubResource("Environment_j6w7d")
