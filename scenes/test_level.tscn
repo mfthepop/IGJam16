@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://ck6g5o31h76on" path="res://scenes/projectile_scene.tscn" id="3_x4b8f"]
 [ext_resource type="PackedScene" uid="uid://12d6ejt2arap" path="res://assets/Meshes/cannon.fbx" id="4_tmr53"]
 [ext_resource type="PackedScene" uid="uid://c4526b3cqlbne" path="res://scenes/ui.tscn" id="4_x4b8f"]
+[ext_resource type="Material" uid="uid://ceuuyyuwglny1" path="res://assets/Meshes/WallMat.tres" id="5_qcd3b"]
+[ext_resource type="Material" uid="uid://2gxnyk4aoi57" path="res://assets/Meshes/FloorMat.tres" id="6_88ety"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2venv"]
 
@@ -54,6 +56,7 @@ visible = false
 transform = Transform3D(1, 0, 0, 0, 84.64, 0, 0, 0, 68.671, -25, 7.5, -2.6605568)
 mesh = SubResource("BoxMesh_3p835")
 skeleton = NodePath("../../..")
+surface_material_override/0 = ExtResource("5_qcd3b")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Geometry/Walls/Wall3" unique_id=2030071772]
 
@@ -64,6 +67,7 @@ shape = SubResource("ConvexPolygonShape3D_2venv")
 transform = Transform3D(-4.371139e-08, 0, 52.024, 0, 72.015, 0, -1, 0, -2.2740412e-06, -0.35631943, 7.5, 25.468075)
 mesh = SubResource("BoxMesh_3p835")
 skeleton = NodePath("../../..")
+surface_material_override/0 = ExtResource("5_qcd3b")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Geometry/Walls/Wall2" unique_id=248010309]
 
@@ -74,6 +78,7 @@ shape = SubResource("ConvexPolygonShape3D_2venv")
 transform = Transform3D(-4.371139e-08, 0, 52.024, 0, 61.64, 0, -1, 0, -2.2740412e-06, -0.35632166, 7.5, -25.531925)
 mesh = SubResource("BoxMesh_3p835")
 skeleton = NodePath("../../..")
+surface_material_override/0 = ExtResource("5_qcd3b")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Geometry/Walls/Wall5" unique_id=688160482]
 
@@ -84,6 +89,7 @@ shape = SubResource("ConvexPolygonShape3D_2venv")
 transform = Transform3D(1, 0, 0, 0, 70.26, 0, 0, 0, 52.024, 25, 7.5, -0.53192735)
 mesh = SubResource("BoxMesh_3p835")
 skeleton = NodePath("../../..")
+surface_material_override/0 = ExtResource("5_qcd3b")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Geometry/Walls/Wall4" unique_id=907395854]
 
@@ -94,6 +100,7 @@ shape = SubResource("ConvexPolygonShape3D_2venv")
 transform = Transform3D(66.272095, 0, 0, 0, 1, 0, 0, 0, 65.610435, 0, -0.5, 0)
 mesh = SubResource("BoxMesh_3p835")
 skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("6_88ety")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Geometry/Ground" unique_id=1400148257]
 
@@ -104,6 +111,7 @@ shape = SubResource("ConvexPolygonShape3D_2venv")
 transform = Transform3D(66.272095, 0, 0, 0, 1, 0, 0, 0, 65.610435, 0, 37.60003, 0)
 mesh = SubResource("BoxMesh_3p835")
 skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("5_qcd3b")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Geometry/Ground2" unique_id=1231840312]
 

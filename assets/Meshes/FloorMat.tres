@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://2gxnyk4aoi57"]
+
+[ext_resource type="Texture2D" uid="uid://ctfbkayevpmk6" path="res://assets/model/metal_plate_diff_4k.jpg" id="1_yiqt4"]
+
+[resource]
+albedo_color = Color(0.75, 0.75, 0.75, 1)
+albedo_texture = ExtResource("1_yiqt4")
+uv1_scale = Vector3(20, 20, 20)
