@@ -37,7 +37,7 @@ func fire():
 		return
 		
 	$MuzzlePoint.fire()
-	print("FireEffekt")
+
 
 	if current_ammo <= 0:
 		print("Out of ammo!")

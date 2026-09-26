@@ -2,6 +2,7 @@
 
 [ext_resource type="PhysicsMaterial" uid="uid://dvkye2hy8e3eh" path="res://assets/Meshes/MetalPhysicsMaterial.tres" id="1_ebdnr"]
 [ext_resource type="Material" uid="uid://bdljhrxh4ktbr" path="res://assets/Meshes/BoxMat.tres" id="2_0pbpi"]
+[ext_resource type="Script" uid="uid://dtaa7iv888why" path="res://scripts/block.gd" id="2_1h7cn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_w81ou"]
 
@@ -11,6 +12,9 @@
 mass = 2.0
 physics_material_override = ExtResource("1_ebdnr")
 gravity_scale = 3.0
+contact_monitor = true
+max_contacts_reported = 4
+script = ExtResource("2_1h7cn")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1372514735]
 transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0, 0)

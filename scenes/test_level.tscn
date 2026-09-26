@@ -7,7 +7,6 @@
 [ext_resource type="Material" uid="uid://ceuuyyuwglny1" path="res://assets/Meshes/WallMat.tres" id="5_qcd3b"]
 [ext_resource type="Material" uid="uid://2gxnyk4aoi57" path="res://assets/Meshes/FloorMat.tres" id="6_88ety"]
 [ext_resource type="PackedScene" uid="uid://cspx4mjra2vob" path="res://assets/Prefabs/Box.tscn" id="6_qcd3b"]
-[ext_resource type="Script" uid="uid://dtaa7iv888why" path="res://scripts/block.gd" id="8_ahbqi"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2venv"]
 
@@ -23,6 +22,8 @@ sky = SubResource("Sky_paw1w")
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2venv"]
 points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_88ety"]
+
 [sub_resource type="LabelSettings" id="LabelSettings_paw1w"]
 font_size = 500
 
@@ -33,6 +34,7 @@ script = ExtResource("1_88ety")
 next_scene = "main_menu.tscn"
 
 [node name="PlayerCharacter" parent="." unique_id=986673130 instance=ExtResource("1_2venv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.332796, 1.651207, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1022588055]
 environment = SubResource("Environment_j6w7d")
@@ -103,7 +105,7 @@ surface_material_override/0 = ExtResource("6_88ety")
 physics_material_override = ExtResource("3_tmr53")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/Ground/StaticBody3D" unique_id=2515812]
-shape = SubResource("ConvexPolygonShape3D_2venv")
+shape = SubResource("BoxShape3D_88ety")
 
 [node name="Ground2" type="MeshInstance3D" parent="Geometry" unique_id=1415025359]
 transform = Transform3D(66.272095, 0, 0, 0, 1, 0, 0, 0, 65.610435, 0, 37.60003, 0)
@@ -125,6 +127,22 @@ offset_top = 39.999996
 offset_right = 1101.0
 offset_bottom = 39.999996
 
+[node name="timer_label" type="Label" parent="UI" unique_id=30877734]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34820.0
+offset_top = 4020.0005
+offset_right = -33417.0
+offset_bottom = 4702.0005
+grow_horizontal = 2
+grow_vertical = 2
+text = "Timer"
+label_settings = SubResource("LabelSettings_paw1w")
+
 [node name="Crosshair" type="Label" parent="UI" unique_id=1513452568]
 layout_mode = 1
 anchors_preset = 8
@@ -145,31 +163,24 @@ label_settings = SubResource("LabelSettings_paw1w")
 
 [node name="RigidBody3D" parent="Boxes" unique_id=1262411353 groups=["level_blocks"] instance=ExtResource("6_qcd3b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2530944, 0)
-script = ExtResource("8_ahbqi")
 
 [node name="RigidBody3D2" parent="Boxes" unique_id=952414198 groups=["level_blocks"] instance=ExtResource("6_qcd3b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.8177717, 0)
-script = ExtResource("8_ahbqi")
 
 [node name="RigidBody3D3" parent="Boxes" unique_id=1059020709 groups=["level_blocks"] instance=ExtResource("6_qcd3b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.3641872, 0)
-script = ExtResource("8_ahbqi")
 
 [node name="RigidBody3D4" parent="Boxes" unique_id=1317174593 groups=["level_blocks"] instance=ExtResource("6_qcd3b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.916184, 0)
-script = ExtResource("8_ahbqi")
 
 [node name="RigidBody3D5" parent="Boxes" unique_id=1122061772 groups=["level_blocks"] instance=ExtResource("6_qcd3b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.45764, 0)
-script = ExtResource("8_ahbqi")
 
 [node name="RigidBody3D6" parent="Boxes" unique_id=763912795 groups=["level_blocks"] instance=ExtResource("6_qcd3b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.01323, 0)
-script = ExtResource("8_ahbqi")
 
 [node name="RigidBody3D7" parent="Boxes" unique_id=1548968024 groups=["level_blocks"] instance=ExtResource("6_qcd3b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16.600075, 0)
-script = ExtResource("8_ahbqi")
 
 [node name="AreaLight3D" type="AreaLight3D" parent="." unique_id=167805022]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.1102924, 6.7644043)
