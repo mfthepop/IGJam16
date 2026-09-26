@@ -144,6 +144,7 @@ mouseModeAction = "mouse_mode"
 transform = Transform3D(0.16280672, -0.05164573, -0.9853056, 0.24120872, 0.9704108, -0.011008947, 0.95671946, -0.23587182, 0.17044689, 0.42258862, -0.6574983, -0.43901658)
 script = ExtResource("11_d3h1q")
 projectile_scene = ExtResource("12_qmq2g")
+launch_force = 50.0
 
 [node name="Muzzle" type="Marker3D" parent="CameraHolder/canon" unique_id=2077965204 groups=["PlayerCharacter"]]
 

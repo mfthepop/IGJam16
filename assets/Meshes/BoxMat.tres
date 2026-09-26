@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bdljhrxh4ktbr"]
+
+[ext_resource type="Texture2D" uid="uid://bn6lufu3evtcs" path="res://assets/model/blue_metal_plate_diff_1k.jpg" id="1_iiak4"]
+[ext_resource type="Texture2D" uid="uid://cm85iaosi6g0b" path="res://assets/model/blue_metal_plate_disp_1k.png" id="2_pm0xt"]
+
+[resource]
+albedo_color = Color(0.75, 0.75, 0.75, 1)
+albedo_texture = ExtResource("1_iiak4")
+roughness_texture = ExtResource("2_pm0xt")
+uv1_scale = Vector3(3, 3, 3)
+uv1_offset = Vector3(-0.2, 0, 0)

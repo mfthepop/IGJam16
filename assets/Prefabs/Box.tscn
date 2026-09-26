@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cspx4mjra2vob"]
+
+[ext_resource type="PhysicsMaterial" uid="uid://dvkye2hy8e3eh" path="res://assets/Meshes/MetalPhysicsMaterial.tres" id="1_ebdnr"]
+[ext_resource type="Material" uid="uid://bdljhrxh4ktbr" path="res://assets/Meshes/BoxMat.tres" id="2_0pbpi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w81ou"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_8vqkf"]
+
+[node name="RigidBody3D" type="RigidBody3D" unique_id=1262411353]
+mass = 2.0
+physics_material_override = ExtResource("1_ebdnr")
+gravity_scale = 3.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1372514735]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0, 0)
+shape = SubResource("BoxShape3D_w81ou")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1341951656]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0, 0)
+mesh = SubResource("BoxMesh_8vqkf")
+surface_material_override/0 = ExtResource("2_0pbpi")
