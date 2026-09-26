@@ -151,10 +151,10 @@ launch_force = 50.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1644429, 0.7394975, 0.22303025)
 
 [node name="cannon" parent="CameraHolder/canon" unique_id=1378441085 instance=ExtResource("12_h8602")]
-transform = Transform3D(0.9094528, 0.41580716, 0, -0.41580716, 0.9094528, 0, 0, 0, 1, 0.5179423, -0.69824266, 1.4901161e-08)
+transform = Transform3D(0.9094528, 0.41580716, 0, -0.41580716, 0.9094528, 0, 0, 0, 1, 1.3604931, -0.6338613, 0.08613212)
 
 [node name="MuzzlePoint" type="Node3D" parent="CameraHolder/canon" unique_id=1349564408]
-transform = Transform3D(0.99999994, 9.313226e-10, 2.9802322e-08, 0, 0.9999999, 7.450581e-09, -1.4901161e-08, 3.7252903e-09, 0.9999999, -1.1644428, 0.7935194, 0.24802111)
+transform = Transform3D(0.99999994, 9.313226e-10, 2.9802322e-08, 0, 0.9999999, 7.450581e-09, -1.4901161e-08, 3.7252903e-09, 0.9999999, -1.0995026, 0.67505276, 0.19239469)
 script = ExtResource("12_mx8g3")
 
 [node name="Camera" type="Camera3D" parent="CameraHolder" unique_id=1494003470]
