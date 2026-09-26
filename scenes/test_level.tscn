@@ -1,9 +1,6 @@
 [gd_scene format=3 uid="uid://cfgkvrsuehypw"]
 
 [ext_resource type="PackedScene" uid="uid://bwggrf7sbmkcv" path="res://addons/PlayerCharacter/PlayerCharacterScene.tscn" id="1_2venv"]
-[ext_resource type="Script" uid="uid://cli0t71fad0xn" path="res://scripts/canon.gd" id="2_j6w7d"]
-[ext_resource type="PackedScene" uid="uid://ck6g5o31h76on" path="res://scenes/projectile_scene.tscn" id="3_x4b8f"]
-[ext_resource type="PackedScene" uid="uid://12d6ejt2arap" path="res://assets/Meshes/cannon.fbx" id="4_tmr53"]
 [ext_resource type="PackedScene" uid="uid://c4526b3cqlbne" path="res://scenes/ui.tscn" id="4_x4b8f"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2venv"]
@@ -20,6 +17,9 @@ sky = SubResource("Sky_paw1w")
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2venv"]
 points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
 
+[sub_resource type="LabelSettings" id="LabelSettings_paw1w"]
+font_size = 500
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_paw1w"]
 
 [node name="TestLevel2" type="Node3D" unique_id=1031882098]
@@ -27,15 +27,6 @@ points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 
 [node name="PlayerCharacter" parent="." unique_id=436977152 instance=ExtResource("1_2venv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3662055, 0)
 showHUD = true
-
-[node name="canon" type="Node3D" parent="PlayerCharacter" unique_id=1990104529]
-script = ExtResource("2_j6w7d")
-projectile_scene = ExtResource("3_x4b8f")
-
-[node name="Muzzle" type="Marker3D" parent="PlayerCharacter/canon" unique_id=281326377]
-
-[node name="cannon" parent="PlayerCharacter" unique_id=1042833882 instance=ExtResource("4_tmr53")]
-transform = Transform3D(0.8572341, 0.39521372, 0.33008453, -0.41868016, 0.90813375, 0, -0.2997609, -0.13819985, 0.94395137, 0.76409626, -0.47984362, -0.26857805)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1022588055]
 environment = SubResource("Environment_j6w7d")
@@ -105,11 +96,30 @@ offset_top = 39.999996
 offset_right = 1101.0
 offset_bottom = 39.999996
 
+[node name="Crosshair" type="Label" parent="UI" unique_id=1611252475]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36860.0
+offset_top = 3080.0
+offset_right = -32387.0
+offset_bottom = 6502.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+text = "+ "
+label_settings = SubResource("LabelSettings_paw1w")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+
 [node name="Cube2" type="Node" parent="." unique_id=790429454]
 
 [node name="RigidBody3D" type="RigidBody3D" parent="Cube2" unique_id=1036868790]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -6.777, 1.654, 7)
-gravity_scale = 9.81
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cube2/RigidBody3D" unique_id=1534870347]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
@@ -123,7 +133,6 @@ skeleton = NodePath("../../../..")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="Cube3" unique_id=899976988]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -6.777, 6.779697, 7)
-gravity_scale = 9.81
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cube3/RigidBody3D" unique_id=1931064542]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
@@ -137,7 +146,6 @@ skeleton = NodePath("../../../..")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="Cube4" unique_id=262013750]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -6.777, 12.841941, 7)
-gravity_scale = 9.81
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cube4/RigidBody3D" unique_id=1190706368]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)

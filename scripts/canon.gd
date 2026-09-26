@@ -9,19 +9,23 @@ extends Node3D
 @onready var muzzle: Marker3D = $Muzzle
 @onready var audio: AudioStreamPlayer3D = $AudioStreamPlayer3D
 
-@onready var ammo_label: Label = $"../../UI/AmmoLabel"
+@export var ammo_label: Label
 
-@export var max_ammo: int = 3
+@export var max_ammo: int = 10
 var current_ammo: int
 
 var can_fire := true
 @onready var cheese_number = 0
 func _ready():
+	ammo_label = get_tree().get_first_node_in_group("ammo_label")
 	current_ammo = max_ammo
 	update_ammo_ui()
 
 func update_ammo_ui():
-	ammo_label.text = str(current_ammo)
+	if ammo_label:
+		ammo_label.text = str(current_ammo)
+	else:
+		print("Ammo Label is not assigned!")
 
 func _process(_delta):
 	if Input.is_action_just_pressed("fire") and can_fire:
@@ -39,7 +43,8 @@ func fire():
 	can_fire = false
 
 	current_ammo -= 1
-
+	update_ammo_ui()
+	
 	var target = get_aim_target()
 
 	if target != null:
