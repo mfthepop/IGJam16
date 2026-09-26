@@ -31,7 +31,7 @@ font_size = 500
 
 [node name="GameController" type="Node" parent="." unique_id=1228337448]
 script = ExtResource("1_88ety")
-next_scene = "main_menu.tscn"
+next_scene = "scenes/main_menu.tscn"
 
 [node name="PlayerCharacter" parent="." unique_id=986673130 instance=ExtResource("1_2venv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.332796, 1.651207, 0)
@@ -101,10 +101,10 @@ mesh = SubResource("BoxMesh_3p835")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("6_88ety")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Geometry/Ground" unique_id=1400148257]
+[node name="StaticBody3D" type="StaticBody3D" parent="Geometry/Ground" unique_id=1400148257 groups=["ground"]]
 physics_material_override = ExtResource("3_tmr53")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/Ground/StaticBody3D" unique_id=2515812]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/Ground/StaticBody3D" unique_id=2515812 groups=["ground"]]
 shape = SubResource("BoxShape3D_88ety")
 
 [node name="Ground2" type="MeshInstance3D" parent="Geometry" unique_id=1415025359]
@@ -127,7 +127,7 @@ offset_top = 39.999996
 offset_right = 1101.0
 offset_bottom = 39.999996
 
-[node name="timer_label" type="Label" parent="UI" unique_id=30877734]
+[node name="timer_label" type="Label" parent="UI" unique_id=30877734 groups=["timer_label"]]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

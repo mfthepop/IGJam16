@@ -11,9 +11,5 @@ func _ready() -> void:
 
 
 func _on_body_entered(body: Node) -> void:
-	print("================================")
-	print("BODY ENTERED!")
-	print("My block: ", name)
-	print("Other body: ", body.name)
-	print("Other type: ", body.get_class())
-	print("================================")
+	if body.is_in_group("ground"):
+		is_on_ground = true

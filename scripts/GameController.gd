@@ -25,8 +25,6 @@ func all_blocks_on_ground() -> bool:
 	for block in blocks:
 		if not block.is_on_ground:
 			return false
-
-	print("geschft")
 	return true
 
 
