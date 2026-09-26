@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://cfgkvrsuehypw"]
 
 [ext_resource type="PackedScene" uid="uid://bwggrf7sbmkcv" path="res://addons/PlayerCharacter/PlayerCharacterScene.tscn" id="1_2venv"]
+[ext_resource type="Script" uid="uid://cli0t71fad0xn" path="res://scripts/canon.gd" id="2_j6w7d"]
+[ext_resource type="PackedScene" uid="uid://ck6g5o31h76on" path="res://scenes/projectile_scene.tscn" id="3_x4b8f"]
+[ext_resource type="PackedScene" uid="uid://12d6ejt2arap" path="res://assets/Meshes/cannon.fbx" id="4_tmr53"]
 [ext_resource type="PackedScene" uid="uid://c4526b3cqlbne" path="res://scenes/ui.tscn" id="4_x4b8f"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2venv"]
@@ -17,10 +20,9 @@ sky = SubResource("Sky_paw1w")
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2venv"]
 points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
 
-[sub_resource type="LabelSettings" id="LabelSettings_paw1w"]
-font_size = 500
+[sub_resource type="BoxShape3D" id="BoxShape3D_w81ou"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_paw1w"]
+[sub_resource type="BoxMesh" id="BoxMesh_8vqkf"]
 
 [node name="TestLevel2" type="Node3D" unique_id=1031882098]
 
@@ -28,18 +30,28 @@ font_size = 500
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3662055, 0)
 showHUD = true
 
+[node name="canon" type="Node3D" parent="PlayerCharacter" unique_id=1990104529]
+script = ExtResource("2_j6w7d")
+projectile_scene = ExtResource("3_x4b8f")
+
+[node name="Muzzle" type="Marker3D" parent="PlayerCharacter/canon" unique_id=281326377]
+
+[node name="cannon" parent="PlayerCharacter" unique_id=1042833882 instance=ExtResource("4_tmr53")]
+transform = Transform3D(0.8572341, 0.39521372, 0.33008453, -0.41868016, 0.90813375, 0, -0.2997609, -0.13819985, 0.94395137, 0.76409626, -0.47984362, -0.26857805)
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1022588055]
 environment = SubResource("Environment_j6w7d")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1220925789]
 transform = Transform3D(1, 0, 0, 0, 0.9313612, 0.36409664, 0, -0.36409664, 0.9313612, 0, 9.730066, 2.404961)
+visible = false
 
 [node name="Geometry" type="Node3D" parent="." unique_id=1141348753]
 
 [node name="Walls" type="Node3D" parent="Geometry" unique_id=1032773492]
 
 [node name="Wall3" type="MeshInstance3D" parent="Geometry/Walls" unique_id=1096243676]
-transform = Transform3D(1, 0, 0, 0, 15, 0, 0, 0, 68.67087, -25, 7.5, -2.6605568)
+transform = Transform3D(1, 0, 0, 0, 84.64, 0, 0, 0, 68.671, -25, 7.5, -2.6605568)
 mesh = SubResource("BoxMesh_3p835")
 skeleton = NodePath("../../..")
 
@@ -49,7 +61,7 @@ skeleton = NodePath("../../..")
 shape = SubResource("ConvexPolygonShape3D_2venv")
 
 [node name="Wall2" type="MeshInstance3D" parent="Geometry/Walls" unique_id=987280366]
-transform = Transform3D(-4.371139e-08, 0, 52.024414, 0, 15, 0, -1, 0, -2.2740594e-06, -0.35631943, 7.5, 25.468075)
+transform = Transform3D(-4.371139e-08, 0, 52.024, 0, 72.015, 0, -1, 0, -2.2740412e-06, -0.35631943, 7.5, 25.468075)
 mesh = SubResource("BoxMesh_3p835")
 skeleton = NodePath("../../..")
 
@@ -59,7 +71,7 @@ skeleton = NodePath("../../..")
 shape = SubResource("ConvexPolygonShape3D_2venv")
 
 [node name="Wall5" type="MeshInstance3D" parent="Geometry/Walls" unique_id=622292857]
-transform = Transform3D(-4.371139e-08, 0, 52.024414, 0, 15, 0, -1, 0, -2.2740594e-06, -0.35632166, 7.5, -25.531925)
+transform = Transform3D(-4.371139e-08, 0, 52.024, 0, 61.64, 0, -1, 0, -2.2740412e-06, -0.35632166, 7.5, -25.531925)
 mesh = SubResource("BoxMesh_3p835")
 skeleton = NodePath("../../..")
 
@@ -69,7 +81,7 @@ skeleton = NodePath("../../..")
 shape = SubResource("ConvexPolygonShape3D_2venv")
 
 [node name="Wall4" type="MeshInstance3D" parent="Geometry/Walls" unique_id=249309005]
-transform = Transform3D(1, 0, 0, 0, 15, 0, 0, 0, 52.024414, 25, 7.5, -0.53192735)
+transform = Transform3D(1, 0, 0, 0, 70.26, 0, 0, 0, 52.024, 25, 7.5, -0.53192735)
 mesh = SubResource("BoxMesh_3p835")
 skeleton = NodePath("../../..")
 
@@ -79,13 +91,23 @@ skeleton = NodePath("../../..")
 shape = SubResource("ConvexPolygonShape3D_2venv")
 
 [node name="Ground" type="MeshInstance3D" parent="Geometry" unique_id=1091654399]
-transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 0, -0.5, 0)
+transform = Transform3D(66.272095, 0, 0, 0, 1, 0, 0, 0, 65.610435, 0, -0.5, 0)
 mesh = SubResource("BoxMesh_3p835")
 skeleton = NodePath("../..")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Geometry/Ground" unique_id=1400148257]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/Ground/StaticBody3D" unique_id=2515812]
+shape = SubResource("ConvexPolygonShape3D_2venv")
+
+[node name="Ground2" type="MeshInstance3D" parent="Geometry" unique_id=1415025359]
+transform = Transform3D(66.272095, 0, 0, 0, 1, 0, 0, 0, 65.610435, 0, 37.60003, 0)
+mesh = SubResource("BoxMesh_3p835")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Geometry/Ground2" unique_id=1231840312]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/Ground2/StaticBody3D" unique_id=1957044584]
 shape = SubResource("ConvexPolygonShape3D_2venv")
 
 [node name="Boxes" type="Node3D" parent="Geometry" unique_id=1606369339]
@@ -96,61 +118,82 @@ offset_top = 39.999996
 offset_right = 1101.0
 offset_bottom = 39.999996
 
-[node name="Crosshair" type="Label" parent="UI" unique_id=1611252475]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -36860.0
-offset_top = 3080.0
-offset_right = -32387.0
-offset_bottom = 6502.0
-grow_horizontal = 2
-grow_vertical = 2
-offset_transform_enabled = true
-text = "+ "
-label_settings = SubResource("LabelSettings_paw1w")
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 1
+[node name="Boxes" type="Node" parent="." unique_id=519309059]
 
-[node name="Cube2" type="Node" parent="." unique_id=790429454]
+[node name="RigidBody3D" type="RigidBody3D" parent="Boxes" unique_id=1020591851]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.942627, 1.2573338, 0)
+mass = 2.0
 
-[node name="RigidBody3D" type="RigidBody3D" parent="Cube2" unique_id=1036868790]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -6.777, 1.654, 7)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Boxes/RigidBody3D" unique_id=2028298435]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0, 0)
+shape = SubResource("BoxShape3D_w81ou")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube2/RigidBody3D" unique_id=1534870347]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
-shape = SubResource("BoxShape3D_paw1w")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Boxes/RigidBody3D" unique_id=1884998065]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0, 0)
+mesh = SubResource("BoxMesh_8vqkf")
 
-[node name="Visuals" type="MeshInstance3D" parent="Cube2/RigidBody3D/CollisionShape3D" unique_id=1778683481]
-mesh = SubResource("BoxMesh_3p835")
-skeleton = NodePath("../../../..")
+[node name="RigidBody3D2" type="RigidBody3D" parent="Boxes" unique_id=1174389001]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.942627, 3.777997, 0)
+mass = 2.0
 
-[node name="Cube3" type="Node" parent="." unique_id=861747999]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Boxes/RigidBody3D2" unique_id=2029610350]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0, 0)
+shape = SubResource("BoxShape3D_w81ou")
 
-[node name="RigidBody3D" type="RigidBody3D" parent="Cube3" unique_id=899976988]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -6.777, 6.779697, 7)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Boxes/RigidBody3D2" unique_id=665855237]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0, 0)
+mesh = SubResource("BoxMesh_8vqkf")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube3/RigidBody3D" unique_id=1931064542]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
-shape = SubResource("BoxShape3D_paw1w")
+[node name="RigidBody3D3" type="RigidBody3D" parent="Boxes" unique_id=1994954753]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.942627, 6.3084893, 0)
+mass = 2.0
 
-[node name="Visuals" type="MeshInstance3D" parent="Cube3/RigidBody3D/CollisionShape3D" unique_id=1742701936]
-mesh = SubResource("BoxMesh_3p835")
-skeleton = NodePath("../../../..")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Boxes/RigidBody3D3" unique_id=1189073302]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0, 0)
+shape = SubResource("BoxShape3D_w81ou")
 
-[node name="Cube4" type="Node" parent="." unique_id=258987213]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Boxes/RigidBody3D3" unique_id=544535718]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0, 0)
+mesh = SubResource("BoxMesh_8vqkf")
 
-[node name="RigidBody3D" type="RigidBody3D" parent="Cube4" unique_id=262013750]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -6.777, 12.841941, 7)
+[node name="RigidBody3D4" type="RigidBody3D" parent="Boxes" unique_id=1769469020]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.942627, 8.832887, 0)
+mass = 2.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube4/RigidBody3D" unique_id=1190706368]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
-shape = SubResource("BoxShape3D_paw1w")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Boxes/RigidBody3D4" unique_id=1291907822]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0, 0)
+shape = SubResource("BoxShape3D_w81ou")
 
-[node name="Visuals" type="MeshInstance3D" parent="Cube4/RigidBody3D/CollisionShape3D" unique_id=1520500545]
-mesh = SubResource("BoxMesh_3p835")
-skeleton = NodePath("../../../..")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Boxes/RigidBody3D4" unique_id=1185754275]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0, 0)
+mesh = SubResource("BoxMesh_8vqkf")
+
+[node name="RigidBody3D5" type="RigidBody3D" parent="Boxes" unique_id=1802827685]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.942627, 11.369313, 0)
+mass = 2.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Boxes/RigidBody3D5" unique_id=2092374885]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0, 0)
+shape = SubResource("BoxShape3D_w81ou")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Boxes/RigidBody3D5" unique_id=534155395]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0, 0)
+mesh = SubResource("BoxMesh_8vqkf")
+
+[node name="AreaLight3D" type="AreaLight3D" parent="." unique_id=167805022]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.781215, 6.7644043)
+light_color = Color(0.97310406, 1, 0.6874934, 1)
+light_energy = 6.27
+light_indirect_energy = 1.698
+light_volumetric_fog_energy = 4.492
+area_range = 55.643
+area_attenuation = 0.762
+
+[node name="AreaLight3D2" type="AreaLight3D" parent="." unique_id=1528776441]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -2.3666253e-07, 22.94785, -2.7071037)
+light_color = Color(0.97310406, 1, 0.6874934, 1)
+light_energy = 6.27
+light_indirect_energy = 1.698
+light_volumetric_fog_energy = 4.492
+area_range = 55.643
+area_attenuation = 0.762
