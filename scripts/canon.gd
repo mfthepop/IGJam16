@@ -89,7 +89,7 @@ func shoot_block(target_position: Vector3):
 	var block = projectile_scene.instantiate()
 
 	get_tree().current_scene.add_child(block)
-
+	
 	# Start slightly in front of the cannon
 	block.global_position = muzzle.global_position
 

@@ -141,7 +141,7 @@ onFloorTiltValDivider = 1.6
 mouseModeAction = "mouse_mode"
 
 [node name="canon" type="Node3D" parent="CameraHolder" unique_id=355215906 groups=["PlayerCharacter"]]
-transform = Transform3D(-0.4022208, 0.09547288, -0.91055125, 0.23094751, 0.9729663, 1.0095038e-08, 0.8859355, -0.2102895, -0.41339642, 0.2659115, -0.52745295, -0.42597103)
+transform = Transform3D(0.16280672, -0.05164573, -0.9853056, 0.24120872, 0.9704108, -0.011008947, 0.95671946, -0.23587182, 0.17044689, 0.42258862, -0.6574983, -0.43901658)
 script = ExtResource("11_d3h1q")
 projectile_scene = ExtResource("12_qmq2g")
 
