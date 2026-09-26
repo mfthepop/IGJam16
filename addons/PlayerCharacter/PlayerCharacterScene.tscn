@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c4526b3cqlbne" path="res://scenes/ui.tscn" id="10_2rfya"]
 [ext_resource type="Script" uid="uid://cli0t71fad0xn" path="res://scripts/canon.gd" id="11_d3h1q"]
 [ext_resource type="Script" uid="uid://cyymc8do3bwa7" path="res://scripts/menu.gd" id="12_17hed"]
+[ext_resource type="Script" uid="uid://ct1vn4odhtl67" path="res://addons/PlayerCharacter/Effekt.gd" id="12_mx8g3"]
 [ext_resource type="PackedScene" uid="uid://ck6g5o31h76on" path="res://scenes/projectile_scene.tscn" id="12_qmq2g"]
 [ext_resource type="PackedScene" uid="uid://12d6ejt2arap" path="res://assets/Meshes/cannon.fbx" id="13_mx8g3"]
 [ext_resource type="AudioStream" uid="uid://c8hsn3k753b03" path="res://assets/sounds/jump_audio.tres" id="13_ypkm2"]
@@ -147,9 +148,14 @@ projectile_scene = ExtResource("12_qmq2g")
 launch_force = 50.0
 
 [node name="Muzzle" type="Marker3D" parent="CameraHolder/canon" unique_id=2077965204 groups=["PlayerCharacter"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1644429, 0.7394975, 0.22303025)
 
 [node name="cannon" parent="CameraHolder/canon" unique_id=1042833882 groups=["PlayerCharacter"] instance=ExtResource("13_mx8g3")]
-transform = Transform3D(0.8572341, 0.39521372, 0.33008453, -0.41868016, 0.90813375, 0, -0.2997609, -0.13819985, 0.94395137, 1.1965203, -0.47443515, -0.26857802)
+transform = Transform3D(0.9150584, 0.39521372, 0.08046341, -0.402392, 0.9081338, 0.115645126, -0.027366988, -0.13819982, 0.9900262, 1.2269512, -0.45349976, -0.043984085)
+
+[node name="MuzzlePoint" type="Node3D" parent="CameraHolder/canon" unique_id=1349564408]
+transform = Transform3D(0.99999994, 9.313226e-10, 2.9802322e-08, 0, 0.9999999, 7.450581e-09, -1.4901161e-08, 3.7252903e-09, 0.9999999, -1.1644428, 0.7935194, 0.24802111)
+script = ExtResource("12_mx8g3")
 
 [node name="Camera" type="Camera3D" parent="CameraHolder" unique_id=1494003470]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16065216, 0)

@@ -35,6 +35,9 @@ func _process(_delta):
 func fire():
 	if not can_fire:
 		return
+		
+	$MuzzlePoint.fire()
+	print("FireEffekt")
 
 	if current_ammo <= 0:
 		print("Out of ammo!")
