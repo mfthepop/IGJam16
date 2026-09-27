@@ -36,6 +36,7 @@ script = ExtResource("1_m7b0f")
 [node name="GameController" type="Node" parent="." unique_id=1228337448]
 script = ExtResource("1_72x3f")
 next_scene = "main_menu.tscn"
+restart_countdown = 5.0
 
 [node name="PlayerCharacter" parent="." unique_id=986673130 instance=ExtResource("2_m7b0f")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -14.332796, 1.651207, 5.2453663e-07)

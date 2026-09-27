@@ -36,6 +36,7 @@ script = ExtResource("1_y3l44")
 [node name="GameController" type="Node" parent="." unique_id=1228337448]
 script = ExtResource("1_o2mec")
 next_scene = "uid://dhb1vyqakl00l"
+restart_countdown = 5.0
 
 [node name="PlayerCharacter" parent="." unique_id=986673130 instance=ExtResource("2_y3l44")]
 transform = Transform3D(-0.9998607, 0, 0.016689328, 0, 1, 0, -0.016689328, 0, -0.9998607, -17.77175, 1.651207, 0)
@@ -63,6 +64,18 @@ physics_material_override = ExtResource("4_60285")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/Walls/Wall3/StaticBody3D" unique_id=1480390544]
 shape = SubResource("ConvexPolygonShape3D_2venv")
 
+[node name="Wall7" type="MeshInstance3D" parent="Geometry/Walls" unique_id=1221325144]
+transform = Transform3D(1, 0, 0, 0, 84.64, 0, 0, 0, 68.671, -25, 7.5, -70.66055)
+mesh = SubResource("BoxMesh_3p835")
+skeleton = NodePath("../../..")
+surface_material_override/0 = ExtResource("3_4kscr")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Geometry/Walls/Wall7" unique_id=46539472]
+physics_material_override = ExtResource("4_60285")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/Walls/Wall7/StaticBody3D" unique_id=462813420]
+shape = SubResource("ConvexPolygonShape3D_2venv")
+
 [node name="Wall2" type="MeshInstance3D" parent="Geometry/Walls" unique_id=987280366]
 transform = Transform3D(-4.371139e-08, 0, 52.024, 0, 72.015, 0, -1, 0, -2.2740412e-06, -0.35631943, 7.5, 25.468075)
 mesh = SubResource("BoxMesh_3p835")
@@ -76,7 +89,7 @@ physics_material_override = ExtResource("4_60285")
 shape = SubResource("ConvexPolygonShape3D_2venv")
 
 [node name="Wall5" type="MeshInstance3D" parent="Geometry/Walls" unique_id=622292857]
-transform = Transform3D(-4.371139e-08, 0, 52.024, 0, 61.64, 0, -1, 0, -2.2740412e-06, -0.35632166, 7.5, -25.531925)
+transform = Transform3D(-4.371139e-08, 0, 52.024, 0, 61.64, 0, -1, 0, -2.2740412e-06, -0.35632166, 7.5, -48.531925)
 mesh = SubResource("BoxMesh_3p835")
 skeleton = NodePath("../../..")
 surface_material_override/0 = ExtResource("3_4kscr")
@@ -99,6 +112,18 @@ physics_material_override = ExtResource("4_60285")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/Walls/Wall4/StaticBody3D" unique_id=483655209]
 shape = SubResource("ConvexPolygonShape3D_2venv")
 
+[node name="Wall6" type="MeshInstance3D" parent="Geometry/Walls" unique_id=1125370414]
+transform = Transform3D(1, 0, 0, 0, 70.26, 0, 0, 0, 52.024, 25, 7.5, -52.53193)
+mesh = SubResource("BoxMesh_3p835")
+skeleton = NodePath("../../..")
+surface_material_override/0 = ExtResource("3_4kscr")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Geometry/Walls/Wall6" unique_id=237405953]
+physics_material_override = ExtResource("4_60285")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/Walls/Wall6/StaticBody3D" unique_id=1129330339]
+shape = SubResource("ConvexPolygonShape3D_2venv")
+
 [node name="Ground" type="MeshInstance3D" parent="Geometry" unique_id=1091654399 groups=["ground"]]
 transform = Transform3D(66.272095, 0, 0, 0, 1, 0, 0, 0, 65.610435, 0, -0.5, 0)
 mesh = SubResource("BoxMesh_3p835")
@@ -109,6 +134,18 @@ surface_material_override/0 = ExtResource("5_ptpae")
 physics_material_override = ExtResource("4_60285")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/Ground/StaticBody3D" unique_id=2515812 groups=["ground"]]
+shape = SubResource("BoxShape3D_88ety")
+
+[node name="Ground3" type="MeshInstance3D" parent="Geometry" unique_id=542832837 groups=["ground"]]
+transform = Transform3D(66.272095, 0, 0, 0, 1, 0, 0, 0, 65.610435, 0, -0.5, -65.46891)
+mesh = SubResource("BoxMesh_3p835")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("5_ptpae")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Geometry/Ground3" unique_id=758102704 groups=["ground"]]
+physics_material_override = ExtResource("4_60285")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/Ground3/StaticBody3D" unique_id=512704189 groups=["ground"]]
 shape = SubResource("BoxShape3D_88ety")
 
 [node name="Ground2" type="MeshInstance3D" parent="Geometry" unique_id=1415025359]
@@ -289,7 +326,7 @@ area_range = 55.643
 area_attenuation = 0.5
 
 [node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=679639514]
-transform = Transform3D(1, 0, 0, 0, 0.6709583, 0.7414951, 0, -0.7414951, 0.6709583, 23.549763, 17.507212, -5.921278)
+transform = Transform3D(0.8597424, -0.37870228, 0.34267718, 0, 0.67095834, 0.74149513, -0.51072794, -0.6374948, 0.5768513, 23.549763, 17.507212, -20.269613)
 light_energy = 34.1
 light_indirect_energy = 3.095
 light_volumetric_fog_energy = 56.4
