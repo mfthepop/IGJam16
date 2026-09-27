@@ -1,10 +1,10 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://2gxnyk4aoi57"]
 
-[ext_resource type="Texture2D" uid="uid://ctfbkayevpmk6" path="res://assets/model/metal_plate_diff_4k.jpg" id="1_yiqt4"]
-[ext_resource type="Texture2D" uid="uid://dbemqu2v22cgh" path="res://assets/model/metal_plate_disp_4k.png" id="2_k1ut3"]
+[ext_resource type="Texture2D" uid="uid://cyawu0hmp046f" path="res://assets/model/asphalt_06_diff_1k.jpg" id="1_k1ut3"]
+[ext_resource type="Texture2D" uid="uid://cuotx0rcjhbur" path="res://assets/model/asphalt_06_disp_1k.png" id="2_cjp2u"]
 
 [resource]
-albedo_color = Color(0.75, 0.75, 0.75, 1)
-albedo_texture = ExtResource("1_yiqt4")
-roughness_texture = ExtResource("2_k1ut3")
+albedo_color = Color(0, 0.5933253, 0, 1)
+albedo_texture = ExtResource("1_k1ut3")
+roughness_texture = ExtResource("2_cjp2u")
 uv1_scale = Vector3(20, 20, 20)
