@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cpxtgufiqobhs"]
 
 [ext_resource type="Script" uid="uid://c6qbb66el6jiy" path="res://scripts/GameController.gd" id="1_o2mec"]
+[ext_resource type="Script" uid="uid://b8nkow5jp16rt" path="res://scenes/build_animation_controller.gd" id="1_y3l44"]
 [ext_resource type="PackedScene" uid="uid://bwggrf7sbmkcv" path="res://addons/PlayerCharacter/PlayerCharacterScene.tscn" id="2_y3l44"]
 [ext_resource type="Material" uid="uid://ceuuyyuwglny1" path="res://assets/Meshes/WallMat.tres" id="3_4kscr"]
 [ext_resource type="PhysicsMaterial" uid="uid://dvkye2hy8e3eh" path="res://assets/Meshes/MetalPhysicsMaterial.tres" id="4_60285"]
@@ -29,12 +30,15 @@ font_size = 500
 
 [node name="TestLevel2" type="Node3D" unique_id=1031882098]
 
+[node name="BuildAnimationController" type="Node3D" parent="." unique_id=1909500929]
+script = ExtResource("1_y3l44")
+
 [node name="GameController" type="Node" parent="." unique_id=1228337448]
 script = ExtResource("1_o2mec")
-next_scene = "main_menu3.tscn"
+next_scene = "uid://dhb1vyqakl00l"
 
 [node name="PlayerCharacter" parent="." unique_id=986673130 instance=ExtResource("2_y3l44")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.332796, 1.651207, 0)
+transform = Transform3D(-0.9998607, 0, 0.016689328, 0, 1, 0, -0.016689328, 0, -0.9998607, -17.77175, 1.651207, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1022588055]
 environment = SubResource("Environment_j6w7d")
@@ -127,7 +131,7 @@ offset_top = 39.999996
 offset_right = 1101.0
 offset_bottom = 39.999996
 
-[node name="timer_label" type="Label" parent="UI" unique_id=30877734]
+[node name="timer_label" type="Label" parent="UI" unique_id=30877734 groups=["timer_label"]]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
