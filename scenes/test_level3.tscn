@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dhb1vyqakl00l"]
 
 [ext_resource type="Script" uid="uid://c6qbb66el6jiy" path="res://scripts/GameController.gd" id="1_72x3f"]
+[ext_resource type="Script" uid="uid://b8nkow5jp16rt" path="res://scenes/build_animation_controller.gd" id="1_m7b0f"]
 [ext_resource type="PackedScene" uid="uid://bwggrf7sbmkcv" path="res://addons/PlayerCharacter/PlayerCharacterScene.tscn" id="2_m7b0f"]
 [ext_resource type="Material" uid="uid://ceuuyyuwglny1" path="res://assets/Meshes/WallMat.tres" id="3_2x2c5"]
 [ext_resource type="PhysicsMaterial" uid="uid://dvkye2hy8e3eh" path="res://assets/Meshes/MetalPhysicsMaterial.tres" id="4_676au"]
@@ -28,6 +29,9 @@ points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 
 font_size = 500
 
 [node name="TestLevel2" type="Node3D" unique_id=1031882098]
+
+[node name="BuildAnimationController" type="Node3D" parent="." unique_id=1679549610]
+script = ExtResource("1_m7b0f")
 
 [node name="GameController" type="Node" parent="." unique_id=1228337448]
 script = ExtResource("1_72x3f")
