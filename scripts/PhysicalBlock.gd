@@ -13,3 +13,8 @@ func _ready() -> void:
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("ground"):
 		is_on_ground = true
+		
+func is_block_on_ground() -> bool:
+	return is_on_ground		
+		
+		
