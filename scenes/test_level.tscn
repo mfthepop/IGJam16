@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bwggrf7sbmkcv" path="res://addons/PlayerCharacter/PlayerCharacterScene.tscn" id="1_2venv"]
 [ext_resource type="Script" uid="uid://c6qbb66el6jiy" path="res://scripts/GameController.gd" id="1_88ety"]
+[ext_resource type="Script" uid="uid://b8nkow5jp16rt" path="res://scenes/build_animation_controller.gd" id="1_ahbqi"]
 [ext_resource type="PhysicsMaterial" uid="uid://dvkye2hy8e3eh" path="res://assets/Meshes/MetalPhysicsMaterial.tres" id="3_tmr53"]
 [ext_resource type="PackedScene" uid="uid://c4526b3cqlbne" path="res://scenes/ui.tscn" id="4_x4b8f"]
 [ext_resource type="Material" uid="uid://ceuuyyuwglny1" path="res://assets/Meshes/WallMat.tres" id="5_qcd3b"]
@@ -29,12 +30,16 @@ font_size = 500
 
 [node name="TestLevel2" type="Node3D" unique_id=1031882098]
 
+[node name="BuildAnimationController" type="Node3D" parent="." unique_id=1563951311]
+script = ExtResource("1_ahbqi")
+
 [node name="GameController" type="Node" parent="." unique_id=1228337448]
 script = ExtResource("1_88ety")
 next_scene = "scenes/main_menu.tscn"
+restart_countdown = 3.0
 
 [node name="PlayerCharacter" parent="." unique_id=986673130 instance=ExtResource("1_2venv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.332796, 1.651207, 0)
+transform = Transform3D(-0.99764585, 0, 0.06857627, 0, 1, 0, -0.06857627, 0, -0.99764585, -14.0853615, 1.651207, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1022588055]
 environment = SubResource("Environment_j6w7d")
