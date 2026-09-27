@@ -132,7 +132,7 @@ offset_top = 39.999996
 offset_right = 1101.0
 offset_bottom = 39.999996
 
-[node name="timer_label" type="Label" parent="UI" unique_id=30877734]
+[node name="timer_label" type="Label" parent="UI" unique_id=30877734 groups=["timer_label"]]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

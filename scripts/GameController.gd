@@ -53,7 +53,7 @@ func countdown_to_start() -> void:
 	if timer_label:
 		timer_label.visible = true
 
-	var count := 3
+	var count := 0
 
 	while count > 0:
 		if timer_label:
@@ -64,7 +64,7 @@ func countdown_to_start() -> void:
 		count -= 1
 
 	if timer_label:
-		timer_label.text = "GO!"
+		timer_label.text = "shoot boxes"
 
 	await get_tree().create_timer(0.7).timeout
 
