@@ -160,6 +160,18 @@ physics_material_override = ExtResource("4_60285")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/Ground2/StaticBody3D" unique_id=1957044584]
 shape = SubResource("ConvexPolygonShape3D_2venv")
 
+[node name="Ground4" type="MeshInstance3D" parent="Geometry" unique_id=455490924]
+transform = Transform3D(66.272095, 0, 0, 0, 1, 0, 0, 0, 65.610435, 0, 37.60003, -65)
+mesh = SubResource("BoxMesh_3p835")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("3_4kscr")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Geometry/Ground4" unique_id=2096229599]
+physics_material_override = ExtResource("4_60285")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/Ground4/StaticBody3D" unique_id=2018761211]
+shape = SubResource("ConvexPolygonShape3D_2venv")
+
 [node name="Boxes" type="Node3D" parent="Geometry" unique_id=1606369339]
 
 [node name="UI" parent="." unique_id=746893520 instance=ExtResource("6_dwkdm")]
