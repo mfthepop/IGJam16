@@ -242,9 +242,9 @@ area_range = 55.643
 area_attenuation = 0.5
 
 [node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=679639514]
-transform = Transform3D(1, 0, 0, 0, 0.6709583, 0.7414951, 0, -0.7414951, 0.6709583, 23.549763, 17.507212, -5.921278)
-light_energy = 34.1
+transform = Transform3D(0.98718, 0.016143546, -0.1587929, 0.15860617, 0.012263864, 0.9872656, 0.017885387, -0.9997945, 0.009546176, -3.9356563, 31.38739, 0.6529604)
+light_energy = 100.0
 light_indirect_energy = 3.095
 light_volumetric_fog_energy = 56.4
 spot_range = 4096.0
-spot_angle = 40.72
+spot_angle = 14.050734

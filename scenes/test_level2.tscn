@@ -317,9 +317,33 @@ area_range = 55.643
 area_attenuation = 0.5
 
 [node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=679639514]
-transform = Transform3D(0.8597424, -0.37870228, 0.34267718, 0, 0.67095834, 0.74149513, -0.51072794, -0.6374948, 0.5768513, 23.549763, 17.507212, -20.269613)
-light_energy = 34.1
+transform = Transform3D(0.9325552, -0.32915285, -0.14832152, 0.14009912, -0.04870313, 0.9889389, -0.3327358, -0.94301987, 0.00069567404, -3.4334307, 27.63653, -17.81853)
+light_energy = 100.0
 light_indirect_energy = 3.095
 light_volumetric_fog_energy = 56.4
 spot_range = 4096.0
-spot_angle = 40.72
+spot_angle = 9.395639
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="." unique_id=1820243878]
+transform = Transform3D(0.9369738, -0.33068573, -0.112814344, 0.1066162, -0.036885545, 0.9936159, -0.33273584, -0.94302, 0.0006956753, -3.4334307, 27.63653, 3.9957218)
+light_energy = 100.0
+light_indirect_energy = 3.095
+light_volumetric_fog_energy = 56.4
+spot_range = 4096.0
+spot_angle = 9.395639
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="." unique_id=1228719256]
+transform = Transform3D(0.93746156, -0.33085442, -0.10817252, 0.102238975, -0.035340697, 0.994132, -0.33273584, -0.94302, 0.0006956753, -3.4334307, 27.63653, 13.982172)
+light_energy = 100.0
+light_indirect_energy = 3.095
+light_volumetric_fog_energy = 56.4
+spot_range = 4096.0
+spot_angle = 9.395639
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="." unique_id=684662393]
+transform = Transform3D(0.93799067, -0.3310372, -0.102897555, 0.09726472, -0.03358517, 0.9946918, -0.33273584, -0.94302, 0.0006956753, -3.0813036, 27.63653, -7.0039926)
+light_energy = 100.0
+light_indirect_energy = 3.095
+light_volumetric_fog_energy = 56.4
+spot_range = 4096.0
+spot_angle = 8.318437
