@@ -101,10 +101,10 @@ mesh = SubResource("BoxMesh_3p835")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("5_toek5")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Geometry/Ground" unique_id=1400148257]
+[node name="StaticBody3D" type="StaticBody3D" parent="Geometry/Ground" unique_id=1400148257 groups=["ground"]]
 physics_material_override = ExtResource("4_676au")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/Ground/StaticBody3D" unique_id=2515812]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/Ground/StaticBody3D" unique_id=2515812 groups=["ground"]]
 shape = SubResource("BoxShape3D_88ety")
 
 [node name="Ground2" type="MeshInstance3D" parent="Geometry" unique_id=1415025359]
@@ -180,7 +180,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.3641872, -2.80751)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.3641872, 4.234638)
 
 [node name="RigidBody3D4" parent="Boxes" unique_id=1317174593 groups=["level_blocks"] instance=ExtResource("7_y3rqp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.916184, -1.5395895)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.916184, 0.8798765)
+
+[node name="RigidBody3D12" parent="Boxes" unique_id=1061795306 groups=["level_blocks"] instance=ExtResource("7_y3rqp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.916184, -1.68792)
 
 [node name="RigidBody3D7" parent="Boxes" unique_id=2101587270 groups=["level_blocks"] instance=ExtResource("7_y3rqp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.916184, 3.4104786)
@@ -193,6 +196,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.45764, 2.3778267)
 
 [node name="RigidBody3D8" parent="Boxes" unique_id=1351706192 groups=["level_blocks"] instance=ExtResource("7_y3rqp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.01323, 1)
+
+[node name="RigidBody3D13" parent="Boxes" unique_id=1096428186 groups=["level_blocks"] instance=ExtResource("7_y3rqp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16.589401, 1)
+
+[node name="RigidBody3D14" parent="Boxes" unique_id=421035729 groups=["level_blocks"] instance=ExtResource("7_y3rqp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 19.136581, 1)
 
 [node name="AreaLight3D" type="AreaLight3D" parent="." unique_id=167805022]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.1102924, 6.7644043)
