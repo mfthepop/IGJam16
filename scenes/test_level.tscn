@@ -155,13 +155,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -34200.0
-offset_top = 5500.0
-offset_right = -34190.0
-offset_bottom = 5523.0
+offset_left = -33400.0
+offset_top = 5400.0
+offset_right = -33114.0
+offset_bottom = 6082.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "+"
+text = "°"
 label_settings = SubResource("LabelSettings_paw1w")
 
 [node name="Boxes" type="Node" parent="." unique_id=519309059]
