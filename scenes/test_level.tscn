@@ -35,7 +35,7 @@ script = ExtResource("1_ahbqi")
 
 [node name="GameController" type="Node" parent="." unique_id=1228337448]
 script = ExtResource("1_88ety")
-next_scene = "scenes/main_menu.tscn"
+next_scene = "uid://cpxtgufiqobhs"
 restart_countdown = 3.0
 
 [node name="PlayerCharacter" parent="." unique_id=986673130 instance=ExtResource("1_2venv")]
