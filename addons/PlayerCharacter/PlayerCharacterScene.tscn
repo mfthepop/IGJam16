@@ -346,10 +346,6 @@ grow_vertical = 0
 layout_mode = 2
 text = "Continue"
 
-[node name="BackToMenu" type="Button" parent="Menu/ColorRect/Buttons" unique_id=837879054]
-layout_mode = 2
-text = "Back to Menu"
-
 [node name="Quit" type="Button" parent="Menu/ColorRect/Buttons" unique_id=496051900]
 layout_mode = 2
 text = "Quit"
@@ -366,5 +362,4 @@ collision_mask = 3
 shape = SubResource("SphereShape3D_2rfya")
 
 [connection signal="pressed" from="Menu/ColorRect/Buttons/Continue" to="Menu" method="_on_continue_pressed"]
-[connection signal="pressed" from="Menu/ColorRect/Buttons/BackToMenu" to="Menu" method="_on_back_to_menu_pressed"]
 [connection signal="pressed" from="Menu/ColorRect/Buttons/Quit" to="Menu" method="_on_quit_pressed"]

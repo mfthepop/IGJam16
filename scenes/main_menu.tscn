@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dlfda2g7a4rwy"]
+[gd_scene format=3 uid="uid://dlfda2g7a4rwy"]
 
 [ext_resource type="Script" uid="uid://di8kfp70utkky" path="res://scripts/main_menu.gd" id="1_ekxnf"]
 [ext_resource type="Texture2D" uid="uid://bahmi75lo8oal" path="res://assets/Poliigon_WoodVeneerOak_7760_BaseColor.jpg" id="2_wu84c"]
@@ -129,14 +129,14 @@ _data = {
 &"show_menu": SubResource("Animation_wu84c")
 }
 
-[node name="MainMenu" type="Node3D"]
+[node name="MainMenu" type="Node3D" unique_id=1450106527]
 script = ExtResource("1_ekxnf")
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="." unique_id=502390534]
 transform = Transform3D(0.9718213, -3.7252903e-09, 0.23571888, -0.029898472, 0.9919233, 0.12326537, -0.23381503, -0.12683955, 0.96397215, 0.39056802, 1.526072, 0.44920993)
 current = true
 
-[node name="ColorRect" type="ColorRect" parent="Camera3D"]
+[node name="ColorRect" type="ColorRect" parent="Camera3D" unique_id=1505780687]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -146,7 +146,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color(0, 0, 0, 0.2)
 
-[node name="Buttons" type="VBoxContainer" parent="Camera3D/ColorRect"]
+[node name="Buttons" type="VBoxContainer" parent="Camera3D/ColorRect" unique_id=1265480758]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -160,76 +160,74 @@ offset_bottom = 186.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Start" type="Button" parent="Camera3D/ColorRect/Buttons"]
+[node name="Start" type="Button" parent="Camera3D/ColorRect/Buttons" unique_id=824478504]
 layout_mode = 2
 text = "Start"
 
-[node name="Quit" type="Button" parent="Camera3D/ColorRect/Buttons"]
+[node name="Quit" type="Button" parent="Camera3D/ColorRect/Buttons" unique_id=441821910]
 layout_mode = 2
 text = "Quit"
 
-[node name="Credits" type="Button" parent="Camera3D/ColorRect/Buttons"]
+[node name="Credits" type="Button" parent="Camera3D/ColorRect/Buttons" unique_id=1320838765]
 layout_mode = 2
 text = "Credits"
 
-[node name="DeactivateCamMotion" type="CheckBox" parent="Camera3D/ColorRect/Buttons"]
+[node name="DeactivateCamMotion" type="CheckBox" parent="Camera3D/ColorRect/Buttons" unique_id=1974575384]
 layout_mode = 2
 button_pressed = true
 text = "Deactivate Camera Motion"
 
-[node name="Geometry" type="Node3D" parent="."]
+[node name="Geometry" type="Node3D" parent="." unique_id=1734297568]
 
-[node name="Ground" type="MeshInstance3D" parent="Geometry"]
+[node name="Ground" type="MeshInstance3D" parent="Geometry" unique_id=1573767277]
 transform = Transform3D(12.556622, 0, 0, 0, -6.6107805e-07, 4, 0, -15.123703, -1.7484555e-07, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_oa1go")
 mesh = SubResource("QuadMesh_ekxnf")
 skeleton = NodePath("../..")
 
-[node name="Left" type="MeshInstance3D" parent="Geometry"]
+[node name="Left" type="MeshInstance3D" parent="Geometry" unique_id=1488445491]
 transform = Transform3D(-6.6027906e-07, 0, 4, 0, 13.185562, 0, -15.105424, 0, -1.7484555e-07, -5.7797956, 6.340864, -0.10472953)
 material_override = SubResource("StandardMaterial3D_tbmy8")
 mesh = SubResource("QuadMesh_bqqt6")
 skeleton = NodePath("../..")
 
-[node name="Left2" type="MeshInstance3D" parent="Geometry"]
+[node name="Left2" type="MeshInstance3D" parent="Geometry" unique_id=24346251]
 transform = Transform3D(-15.105278, 0, 0.017522752, 0, 13.185563, 0, -0.06617212, 0, -3.9999614, 0.20138597, 6.340864, 7.646568)
 material_override = SubResource("StandardMaterial3D_tbmy8")
 mesh = SubResource("QuadMesh_bqqt6")
 skeleton = NodePath("../..")
 
-[node name="Right" type="MeshInstance3D" parent="Geometry"]
+[node name="Right" type="MeshInstance3D" parent="Geometry" unique_id=341288625]
 transform = Transform3D(12.019373, 0, 0, 0, 12.977183, 0, 0, 0, 4, -0.11478484, 6.5164366, -7.7806406)
 material_override = SubResource("StandardMaterial3D_jk1qb")
 mesh = SubResource("QuadMesh_wu84c")
 skeleton = NodePath("../..")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=965858003]
 transform = Transform3D(0.63311535, -0.46860623, 0.61609507, 0.43736932, 0.87326247, 0.21475743, -0.63864946, 0.13349487, 0.75782996, 0, 2.1620505, 0)
 
-[node name="Credit" type="MeshInstance3D" parent="."]
+[node name="Credit" type="MeshInstance3D" parent="." unique_id=796011414]
 transform = Transform3D(-0.11093455, -0.33992547, 0.91915554, 0.06989932, 1.6671863, 0.19076152, -1.5637939, 0.09863503, -0.056677718, -3.0012057, 2.9191496, 1.1891228)
 mesh = SubResource("TextMesh_bqqt6")
 skeleton = NodePath("../Title")
 
-[node name="Title" type="MeshInstance3D" parent="."]
+[node name="Title" type="MeshInstance3D" parent="." unique_id=1664524356]
 transform = Transform3D(0.95423007, 0.0063127307, 0.29900706, -0.044280466, 0.9917405, 0.12037552, -0.29577756, -0.12810616, 0.9466278, -0.92243516, 1.7795508, -4.671661)
 mesh = SubResource("TextMesh_ekxnf")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_wu84c")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=20594516]
+libraries/ = SubResource("AnimationLibrary_wu84c")
 
-[node name="Goal" parent="." instance=ExtResource("4_rtw2f")]
+[node name="Goal" parent="." unique_id=1787217624 instance=ExtResource("4_rtw2f")]
 transform = Transform3D(-0.6842884, 0.51105416, -1.8084726, -1.8664081, 0.040200025, 0.71756995, 0.21970898, 1.9331852, 0.46316332, -0.08295941, 1.0659401, -7.142991)
 
-[node name="Goal2" parent="." instance=ExtResource("4_rtw2f")]
+[node name="Goal2" parent="." unique_id=1215570242 instance=ExtResource("4_rtw2f")]
 transform = Transform3D(1.743645, 0.14085943, -0.048588797, -0.04926593, 0.0064331694, -1.7492945, -0.14062405, 1.74431, 0.010375278, -4.7803464, 3.0914357, 1.0658301)
 
-[node name="Goal3" parent="." instance=ExtResource("4_rtw2f")]
+[node name="Goal3" parent="." unique_id=2034312189 instance=ExtResource("4_rtw2f")]
 transform = Transform3D(0.7772869, 0, -1.2828972, 0, 1.5, 0, 1.2828972, 0, 0.7772869, -4.7277994, 1.3814807, 4.0525527)
 
-[node name="Goal4" parent="." instance=ExtResource("4_rtw2f")]
+[node name="Goal4" parent="." unique_id=658927342 instance=ExtResource("4_rtw2f")]
 transform = Transform3D(-0.6284651, 0, 1.3619956, 0, 1.5, 0, -1.3619956, 0, -0.6284651, -5.802957, 1.3814805, -2.1699324)
 
 [connection signal="pressed" from="Camera3D/ColorRect/Buttons/Start" to="." method="_on_start_pressed"]
